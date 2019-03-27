@@ -103,65 +103,65 @@ class Updater
 		foreach($this->objAllXml->XmlNode as $objNode) {
 
 			$arrAnimal = array();
-			$arrAnimal['petango_id'] 				= trim($objNode->adoptableSearch->ID);
-			$arrAnimal['name'] 						= trim($objNode->adoptableSearch->Name);
-			$arrAnimal['species'] 					= trim($objNode->adoptableSearch->Species);
-			$arrAnimal['breed_primary'] 			= trim($objNode->adoptableSearch->PrimaryBreed);
-			$arrAnimal['breed_secondary'] 			= trim($objNode->adoptableSearch->SecondaryBreed);
-			$arrAnimal['memo_list'] 				= trim($objNode->adoptableSearch->MemoList);
-			$arrAnimal['reference_num'] 			= trim($objNode->adoptableSearch->ARN);
-			$arrAnimal['behavior_test_list'] 		= trim($objNode->adoptableSearch->BehaviorTestList);
-			$arrAnimal['stage'] 					= trim($objNode->adoptableSearch->Stage);
-			$arrAnimal['animal_type'] 				= trim($objNode->adoptableSearch->AnimalType);
-			$arrAnimal['age'] 						= intval(trim($objNode->adoptableSearch->Age));
-			$arrAnimal['wildlife_intake_injury'] 	= trim($objNode->adoptableSearch->WildlifeIntakeInjury);
-			$arrAnimal['wildlife_intake_cause'] 	= trim($objNode->adoptableSearch->WildlifeIntakeCause);
-			$arrAnimal['sublocation'] 				= trim($objNode->adoptableSearch->Sublocation);
-			$arrAnimal['microchip_id'] 				= trim($objNode->adoptableSearch->ChipNumber);
+			$arrAnimal['petango_id'] 				= trim((string)$objNode->adoptableSearch->ID);
+			$arrAnimal['name'] 						= trim((string)$objNode->adoptableSearch->Name);
+			$arrAnimal['species'] 					= trim((string)$objNode->adoptableSearch->Species);
+			$arrAnimal['breed_primary'] 			= trim((string)$objNode->adoptableSearch->PrimaryBreed);
+			$arrAnimal['breed_secondary'] 			= trim((string)$objNode->adoptableSearch->SecondaryBreed);
+			$arrAnimal['memo_list'] 				= trim((string)$objNode->adoptableSearch->MemoList);
+			$arrAnimal['reference_num'] 			= trim((string)$objNode->adoptableSearch->ARN);
+			$arrAnimal['behavior_test_list'] 		= trim((string)$objNode->adoptableSearch->BehaviorTestList);
+			$arrAnimal['stage'] 					= trim((string)$objNode->adoptableSearch->Stage);
+			$arrAnimal['animal_type'] 				= trim((string)$objNode->adoptableSearch->AnimalType);
+			$arrAnimal['age'] 						= intval(trim((string)$objNode->adoptableSearch->Age));
+			$arrAnimal['wildlife_intake_injury'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeInjury);
+			$arrAnimal['wildlife_intake_cause'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeCause);
+			$arrAnimal['sublocation'] 				= trim((string)$objNode->adoptableSearch->Sublocation);
+			$arrAnimal['microchip_id'] 				= trim((string)$objNode->adoptableSearch->ChipNumber);
 			
 			// Special Field Handling
-			$strSex = strtolower(trim($objNode->adoptableSearch->Sex));
+			$strSex = strtolower(trim((string)$objNode->adoptableSearch->Sex));
 			if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 			elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
 
-			$strSpayNeuter = strtolower(trim($objNode->adoptableSearch->SN));
+			$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
 			if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
 			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
 			
-			$strAgeGroup = strtolower(trim($objNode->adoptableSearch->AgeGroup));
+			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
 			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
 			
-			$strOnHold = strtolower(trim($objNode->adoptableSearch->OnHold));
+			$strOnHold = strtolower(trim((string)$objNode->adoptableSearch->OnHold));
 			if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
 			else {$arrAnimal['on_hold'] = '';}
 			
-			$strSpecialNeeds = strtolower(trim($objNode->adoptableSearch->SpecialNeeds));
+			$strSpecialNeeds = strtolower(trim((string)$objNode->adoptableSearch->SpecialNeeds));
 			if ($strSpecialNeeds == "yes" || $strSpecialNeeds == "y") {$arrAnimal['special_needs'] = '1';}
 			else {$arrAnimal['special_needs'] = '';}
 			
-			$strNoDogs = strtolower(trim($objNode->adoptableSearch->NoDogs));
+			$strNoDogs = strtolower(trim((string)$objNode->adoptableSearch->NoDogs));
 			if ($strNoDogs == "yes" || $strNoDogs == "y") {$arrAnimal['no_dogs'] = '1';}
 			else {$arrAnimal['no_dogs'] = '';}
 			
-			$strNoCats = strtolower(trim($objNode->adoptableSearch->NoCats));
+			$strNoCats = strtolower(trim((string)$objNode->adoptableSearch->NoCats));
 			if ($strNoCats == "yes" || $strNoCats == "y") {$arrAnimal['no_cats'] = '1';}
 			else {$arrAnimal['no_cats'] = '';}
 			
-			$strNoKids = strtolower(trim($objNode->adoptableSearch->NoKids));
+			$strNoKids = strtolower(trim((string)$objNode->adoptableSearch->NoKids));
 			if ($strNoKids == "yes" || $strNoKids == "y") {$arrAnimal['no_kids'] = '1';}
 			else {$arrAnimal['no_kids'] = '';}
 
-			$strFeatured = strtolower(trim($objNode->adoptableSearch->Featured));
+			$strFeatured = strtolower(trim((string)$objNode->adoptableSearch->Featured));
 			if ($strFeatured == "yes" || $strFeatured == "y") {$arrAnimal['featured'] = '1';}
 			else {$arrAnimal['featured'] = '';}
 			
 			// Subtable Fields
-			$arrAnimal['lookup___buddy_animal'] 	= trim($objNode->adoptableSearch->BuddyID);
-			$arrAnimal['lookup___location'] 		= trim($objNode->adoptableSearch->Location);
+			$arrAnimal['lookup___buddy_animal'] 	= trim((string)$objNode->adoptableSearch->BuddyID);
+			$arrAnimal['lookup___location'] 		= trim((string)$objNode->adoptableSearch->Location);
 		
 			// Media
-			$strPhoto = trim($objNode->adoptableSearch->Photo);
+			$strPhoto = trim((string)$objNode->adoptableSearch->Photo);
 			if ($strPhoto) {$arrAnimal['remote_images'][] = $strPhoto;}
 			
 			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
@@ -176,119 +176,119 @@ class Updater
 		$objAnimal = $this->arrAnimalXml[$strAnimalId];
 		$arrAnimal = $this->arrAnimalXml[$strAnimalId];
 		
-		$arrAnimal['company_id'] 					= trim($objAnimal->CompanyID);
-		$arrAnimal['petango_id'] 					= trim($objAnimal->ID);
-		$arrAnimal['name'] 							= trim($objAnimal->AnimalName);
-		$arrAnimal['altered'] 						= trim($objAnimal->Altered);
-		$arrAnimal['breed_primary'] 				= trim($objAnimal->PrimaryBreed);
-		$arrAnimal['breed_secondary'] 				= trim($objAnimal->SecondaryBreed);
-		$arrAnimal['color_primary'] 				= trim($objAnimal->PrimaryColor);
-		$arrAnimal['color_secondary'] 				= trim($objAnimal->SecondaryColor);
-		$arrAnimal['age'] 							= intval(trim($objAnimal->Age));			
-		$arrAnimal['size'] 							= trim($objAnimal->Size);
-		$arrAnimal['adoption_cost']	 				= trim($objAnimal->Price);
-		$arrAnimal['description'] 					= trim($objAnimal->Dsc);
-		$arrAnimal['behavior_result'] 				= trim($objAnimal->BehaviorResult);
-		$arrAnimal['memo_list'] 					= trim($objAnimal->MemoList);
-		$arrAnimal['time_in_former_home'] 			= trim($objAnimal->TimeInFormerHome);	
-		$arrAnimal['surrender_reason'] 				= trim($objAnimal->ReasonForSurrender);	
-		$arrAnimal['previous_env'] 					= trim($objAnimal->PrevEnvironment);
-		$arrAnimal['lived_with_types'] 				= trim($objAnimal->LivedWithAnimalTypes);
-		$arrAnimal['weight'] 						= trim($objAnimal->BodyWeight);
-		$arrAnimal['reference_num'] 				= trim($objAnimal->ARN);
-		$arrAnimal['video_id'] 						= trim($objAnimal->VideoID);
-		$arrAnimal['behavior_test_list'] 			= trim($objAnimal->BehaviorTestList);
-		$arrAnimal['stage'] 						= trim($objAnimal->Stage);
-		$arrAnimal['animal_type'] 					= trim($objAnimal->AnimalType);
-		$arrAnimal['wildlife_intake_injury'] 		= trim($objAnimal->WildlifeIntakeInjury);
-		$arrAnimal['wildlife_intake_cause'] 		= trim($objAnimal->WildlifeIntakeCause);
-		$arrAnimal['sublocation'] 					= trim($objAnimal->Sublocation);
-		$arrAnimal['microchip_id'] 					= trim($objAnimal->ChipNumber);
-		$arrAnimal['color_pattern'] 				= trim($objAnimal->ColorPattern);
-		$arrAnimal['adoption_url'] 					= trim($objAnimal->AdoptionApplicationUrl);
+		$arrAnimal['company_id'] 					= trim((string)$objAnimal->CompanyID);
+		$arrAnimal['petango_id'] 					= trim((string)$objAnimal->ID);
+		$arrAnimal['name'] 							= trim((string)$objAnimal->AnimalName);
+		$arrAnimal['altered'] 						= trim((string)$objAnimal->Altered);
+		$arrAnimal['breed_primary'] 				= trim((string)$objAnimal->PrimaryBreed);
+		$arrAnimal['breed_secondary'] 				= trim((string)$objAnimal->SecondaryBreed);
+		$arrAnimal['color_primary'] 				= trim((string)$objAnimal->PrimaryColor);
+		$arrAnimal['color_secondary'] 				= trim((string)$objAnimal->SecondaryColor);
+		$arrAnimal['age'] 							= intval(trim((string)$objAnimal->Age));			
+		$arrAnimal['size'] 							= trim((string)$objAnimal->Size);
+		$arrAnimal['adoption_cost']	 				= trim((string)$objAnimal->Price);
+		$arrAnimal['description'] 					= trim((string)$objAnimal->Dsc);
+		$arrAnimal['behavior_result'] 				= trim((string)$objAnimal->BehaviorResult);
+		$arrAnimal['memo_list'] 					= trim((string)$objAnimal->MemoList);
+		$arrAnimal['time_in_former_home'] 			= trim((string)$objAnimal->TimeInFormerHome);	
+		$arrAnimal['surrender_reason'] 				= trim((string)$objAnimal->ReasonForSurrender);	
+		$arrAnimal['previous_env'] 					= trim((string)$objAnimal->PrevEnvironment);
+		$arrAnimal['lived_with_types'] 				= trim((string)$objAnimal->LivedWithAnimalTypes);
+		$arrAnimal['weight'] 						= trim((string)$objAnimal->BodyWeight);
+		$arrAnimal['reference_num'] 				= trim((string)$objAnimal->ARN);
+		$arrAnimal['video_id'] 						= trim((string)$objAnimal->VideoID);
+		$arrAnimal['behavior_test_list'] 			= trim((string)$objAnimal->BehaviorTestList);
+		$arrAnimal['stage'] 						= trim((string)$objAnimal->Stage);
+		$arrAnimal['animal_type'] 					= trim((string)$objAnimal->AnimalType);
+		$arrAnimal['wildlife_intake_injury'] 		= trim((string)$objAnimal->WildlifeIntakeInjury);
+		$arrAnimal['wildlife_intake_cause'] 		= trim((string)$objAnimal->WildlifeIntakeCause);
+		$arrAnimal['sublocation'] 					= trim((string)$objAnimal->Sublocation);
+		$arrAnimal['microchip_id'] 					= trim((string)$objAnimal->ChipNumber);
+		$arrAnimal['color_pattern'] 				= trim((string)$objAnimal->ColorPattern);
+		$arrAnimal['adoption_url'] 					= trim((string)$objAnimal->AdoptionApplicationUrl);
 		
 		// Special Field Handling
-		$strSex = strtolower(trim($objAnimal->Sex));
+		$strSex = strtolower(trim((string)$objAnimal->Sex));
 		if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 		elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
 		
-		$strAgeGroup = strtolower(trim($objNode->adoptableSearch->AgeGroup));
+		$strAgeGroup = strtolower(trim((string)$objAnimal->AgeGroup));
 		if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 		elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
 		
-		$strOnHold = strtolower(trim($objNode->adoptableSearch->OnHold));
+		$strOnHold = strtolower(trim((string)$objAnimal->OnHold));
 		if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
 		else {$arrAnimal['lived_with_animals'] = '';}
 
-		$strSpecialNeeds = strtolower(trim($objNode->adoptableSearch->SpecialNeeds));
+		$strSpecialNeeds = strtolower(trim((string)$objAnimal->SpecialNeeds));
 		if ($strSpecialNeeds == "yes" || $strSpecialNeeds == "y") {$arrAnimal['special_needs'] = '1';}
 		else {$arrAnimal['special_needs'] = '';}
 		
-		$strNoDogs = strtolower(trim($objNode->adoptableSearch->NoDogs));
+		$strNoDogs = strtolower(trim((string)$objAnimal->NoDogs));
 		if ($strNoDogs == "yes" || $strNoDogs == "y") {$arrAnimal['no_dogs'] = '1';}
 		else {$arrAnimal['no_dogs'] = '';}
 		
-		$strNoCats = strtolower(trim($objNode->adoptableSearch->NoCats));
+		$strNoCats = strtolower(trim((string)$objAnimal->NoCats));
 		if ($strNoCats == "yes" || $strNoCats == "y") {$arrAnimal['no_cats'] = '1';}
 		else {$arrAnimal['no_cats'] = '';}
 		
-		$strNoKids = strtolower(trim($objNode->adoptableSearch->NoKids));
+		$strNoKids = strtolower(trim((string)$objAnimal->NoKids));
 		if ($strNoKids == "yes" || $strNoKids == "y") {$arrAnimal['no_kids'] = '1';}
 		else {$arrAnimal['no_kids'] = '';}
 
-		$strFeatured = strtolower(trim($objNode->adoptableSearch->Featured));
+		$strFeatured = strtolower(trim((string)$objAnimal->Featured));
 		if ($strFeatured == "yes" || $strFeatured == "y") {$arrAnimal['featured'] = '1';}
 		else {$arrAnimal['featured'] = '';}
 		
-		$strDeclawed = strtolower(trim($objNode->adoptableSearch->Declawed));
+		$strDeclawed = strtolower(trim((string)$objAnimal->Declawed));
 		if ($strDeclawed == "yes" || $strDeclawed == "y") {$arrAnimal['declawed'] = '1';}
 		else {$arrAnimal['declawed'] = '';}
 
-		$strHouseTrained = strtolower(trim($objNode->adoptableSearch->Housetrained));
+		$strHouseTrained = strtolower(trim((string)$objAnimal->Housetrained));
 		if ($strHouseTrained == "yes" || $strHouseTrained == "y") {$arrAnimal['house_trained'] = '1';}
 		else {$arrAnimal['house_trained'] = '';}
 
-		$strLivedChildren = strtolower(trim($objNode->adoptableSearch->LivedWithChildren));
+		$strLivedChildren = strtolower(trim((string)$objAnimal->LivedWithChildren));
 		if ($strLivedChildren == "yes" || $strLivedChildren == "y") {$arrAnimal['lived_with_children'] = '1';}
 		else {$arrAnimal['lived_with_children'] = '';}
 
-		$strLivedAnimals = strtolower(trim($objNode->adoptableSearch->LivedWithAnimals));
+		$strLivedAnimals = strtolower(trim((string)$objAnimal->LivedWithAnimals));
 		if ($strLivedAnimals == "yes" || $strLivedAnimals == "y") {$arrAnimal['lived_with_animals'] = '1';} 
 		else {$arrAnimal['lived_with_animals'] = '';}
 
 		// Process Date Fields
-		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfBirth));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->DateOfBirth));
 		if ($objDate) {$arrAnimal['date_of_birth'] = $objDate->getTimestamp();}
 		
-		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->LastIntakeDate));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->LastIntakeDate));
 		if ($objDate) {$arrAnimal['last_intake_date'] = $objDate->getTimestamp();}
 		
-		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfSurrender));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->DateOfSurrender));
 		if ($objDate) {$arrAnimal['date_surrendered'] = $objDate->getTimestamp();}
 			
 		// Subtable Fields
-		$arrAnimal['lookup___species'] 				= trim($objAnimal->Species);		
-		$arrAnimal['lookup___location'] 			= trim($objAnimal->Location);
-		$arrAnimal['lookup___site'] 				= trim($objAnimal->Site);	
-		$arrAnimal['lookup___buddy_animal'] 		= trim($objAnimal->BuddyID);
+		$arrAnimal['lookup___species'] 				= trim((string)$objAnimal->Species);		
+		$arrAnimal['lookup___location'] 			= trim((string)$objAnimal->Location);
+		$arrAnimal['lookup___site'] 				= trim((string)$objAnimal->Site);	
+		$arrAnimal['lookup___buddy_animal'] 		= trim((string)$objAnimal->BuddyID);
 	
-		$strPhoto = trim($objAnimal->Photo1);
+		$strPhoto = trim((string)$objAnimal->Photo1);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo2);
+		$strPhoto = trim((string)$objAnimal->Photo2);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo3);
+		$strPhoto = trim((string)$objAnimal->Photo3);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo4);
+		$strPhoto = trim((string)$objAnimal->Photo4);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo5);
+		$strPhoto = trim((string)$objAnimal->Photo5);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo6);
+		$strPhoto = trim((string)$objAnimal->Photo6);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo7);
+		$strPhoto = trim((string)$objAnimal->Photo7);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo8);
+		$strPhoto = trim((string)$objAnimal->Photo8);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
-		$strPhoto = trim($objAnimal->Photo9);
+		$strPhoto = trim((string)$objAnimal->Photo9);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
 			
 		$this->arrAnimals[$strAnimalId] = $arrAnimal;
