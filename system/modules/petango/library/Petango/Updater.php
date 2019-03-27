@@ -298,7 +298,7 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
-		
+var_dump($this->objConfig);		
 		if ($this->loadAll()) {
 
 			// Load First Pass
