@@ -88,6 +88,10 @@ class Updater
 		
 		$strUrl = sprintf($this->strAnimalUrl, $strAnimalId, $this->objConfig->auth_key);
 		$objXml = simplexml_load_file($strUrl);
+		
+		var_dump($objXML);
+		die();
+		
 		if (!$objXml) {
 			return false;
 		}
