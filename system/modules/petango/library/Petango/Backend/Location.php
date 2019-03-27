@@ -99,6 +99,7 @@ class Location extends Contao_Backend
 		if (is_array($GLOBALS['TL_DCA']['tl_petango_location']['fields']['published']['save_callback']))
 		{
 			foreach ($GLOBALS['TL_DCA']['tl_petango_location']['fields']['published']['save_callback'] as $callback)
+			{
 				if (is_array($callback))
 				{
 					$this->import($callback[0]);
