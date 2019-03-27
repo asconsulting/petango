@@ -73,9 +73,9 @@ class Animal extends Contao_Backend
 			$this->redirect($this->getReferer());
 		}
 
-		$href .= '&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
+		$href .= '&amp;tid='.$row['id'].'&amp;state='.($row['active'] ? '' : 1);
 
-		if (!$row['published'])
+		if (!$row['active'])
 		{
 			$icon = 'invisible.gif';
 		}
@@ -96,9 +96,9 @@ class Animal extends Contao_Backend
 		$objVersions->initialize();
 
 		// Trigger the save_callback
-		if (is_array($GLOBALS['TL_DCA']['tl_petango_animal']['fields']['published']['save_callback']))
+		if (is_array($GLOBALS['TL_DCA']['tl_petango_animal']['fields']['active']['save_callback']))
 		{
-			foreach ($GLOBALS['TL_DCA']['tl_petango_animal']['fields']['published']['save_callback'] as $callback)
+			foreach ($GLOBALS['TL_DCA']['tl_petango_animal']['fields']['active']['save_callback'] as $callback)
 			{
 				if (is_array($callback))
 				{
