@@ -300,8 +300,10 @@ class Updater
 			return false;
 		}		
 		if ($this->loadAll()) {
-echo "Load All Success";
-die("Hmmm");
+
+var_dump($this->arrAnimals);
+die();
+
 			// Load First Pass
 			foreach($this->arrAnimals as $arrCache) {
 echo "First Loop";
