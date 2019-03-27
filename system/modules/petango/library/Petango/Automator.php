@@ -18,7 +18,7 @@ use Petango\Model\Config as ConfigModel;
 use Contao\Controller;
 
 
-class Automator extends Controller; 
+class Automator extends Controller
 {
 	
 	public function updateConfigs() {

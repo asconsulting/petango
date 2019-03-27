@@ -66,7 +66,7 @@ $GLOBALS['TL_MODELS']['tl_petango_location'] 				= 'Petango\Model\Location';
 /**
  * Cron Jobs
  */
-//$GLOBALS['TL_CRON']['minutely'][] = array('Petango\Automator', 'updateConfigs');
+$GLOBALS['TL_CRON']['minutely'][] = array('Petango\Automator', 'updateConfigs');
 
 
 /**
