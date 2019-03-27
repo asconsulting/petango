@@ -71,8 +71,9 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
-		die("Trigger - getAllXml");
+
 		$strUrl = sprintf($this->strAllUrl, $objConfig->auth_key);
+		die($strUrl);
 		$objXml = simplexml_load_file($strUrl);
 		if (!$objXml) {
 			return false;
