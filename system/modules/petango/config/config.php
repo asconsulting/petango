@@ -49,21 +49,29 @@ $GLOBALS['FE_MOD']['peerless']['petango_site_reader'] 		= 'Petango\Module\SiteRe
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] 		= array('Petango\Frontend\Animal', 'loadReaderPageFromUrl');
-$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] 		= array('Petango\Frontend\Site', 'loadReaderPageFromUrl');
+$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] 					= array('Petango\Frontend\Animal', 'loadReaderPageFromUrl');
+$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] 					= array('Petango\Frontend\Site', 'loadReaderPageFromUrl');
 
 
 /**
  * Models
  */
-$GLOBALS['TL_MODELS']['tl_petango_animal'] 		= 'Petango\Model\Animal';
-$GLOBALS['TL_MODELS']['tl_petango_config'] 		= 'Petango\Model\Config';
-$GLOBALS['TL_MODELS']['tl_petango_site'] 		= 'Petango\Model\Site';
-$GLOBALS['TL_MODELS']['tl_petango_species'] 	= 'Petango\Model\Species';
-$GLOBALS['TL_MODELS']['tl_petango_location'] 	= 'Petango\Model\Location';
+$GLOBALS['TL_MODELS']['tl_petango_animal'] 					= 'Petango\Model\Animal';
+$GLOBALS['TL_MODELS']['tl_petango_config'] 					= 'Petango\Model\Config';
+$GLOBALS['TL_MODELS']['tl_petango_site'] 					= 'Petango\Model\Site';
+$GLOBALS['TL_MODELS']['tl_petango_species'] 				= 'Petango\Model\Species';
+$GLOBALS['TL_MODELS']['tl_petango_location'] 				= 'Petango\Model\Location';
 
 
 /**
  * Cron Jobs
  */
 $GLOBALS['TL_CRON']['minutely'][] = array('Petango\Automator', 'updateConfigs');
+
+
+/**
+ * Styles
+ */
+ if (version_compare(VERSION, '4.4', '>=')) {
+	$GLOBALS['TL_CSS'][] = 'system/modules/petango/assets/css/backend-contao4.css|static';
+}
