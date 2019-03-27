@@ -49,20 +49,20 @@ class Updater
 		if (!$this->objConfig && \Input::get('do') == 'petango_config' && \Input::get('key') == 'update') {
 			$objConfig = Config::findByPk(\Input::get('id'));
 			if ($objConfig) {
-				$this->$objConfig = $objConfig;
+				$this->objConfig = $objConfig;
 			}
 		}
 	}
 	
 	public function loadConfig($objConfig = null) {
 		if (is_a($objConfig, 'Petango\Model\Config')) {
-			$this->$objConfig = $objConfig;
+			$this->objConfig = $objConfig;
 		}
 		if (intval($objConfig)) {
 			$intConfig = $objConfig;
 			$objConfig = Config::findByPk($intConfig);
 			if ($objConfig) {
-				$this->$objConfig = $objConfig;
+				$this->objConfig = $objConfig;
 			}
 		}
 	}
