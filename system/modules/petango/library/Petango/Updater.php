@@ -46,7 +46,7 @@ class Updater
 	function __construct($objConfig = null) {
 		$this->loadConfig($objConfig);
 		
-		if (!$this->objConfig && \Input::get('do') == 'petango_config' && \Input::get('key') == 'update' && ) {
+		if (!$this->objConfig && \Input::get('do') == 'petango_config' && \Input::get('key') == 'update') {
 			$objConfig = Config::findByPk(\Input::get('id'));
 			if ($objConfig) {
 				$this->$objConfig = $objConfig;
