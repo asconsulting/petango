@@ -23,7 +23,7 @@ $GLOBALS['BE_MOD']['petango'] = array(
 		'tables' => array('tl_petango_config'),
 		'update' => array('Petango\Updater', 'updateConfig')
 	),
-	'petango_animal' = array(
+	'petango_animal' => array(
 		'tables' => array('tl_petango_animal')
 	),
 	'petango_site' => array(
