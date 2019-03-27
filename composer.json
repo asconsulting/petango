@@ -1,0 +1,36 @@
+{
+    "name":"asconsulting/petango",
+    "description":"Petango Interface for Contao CMS 4.4+",
+    "homepage": "https://andrewstevens.consulting",
+    "keywords":["contao", "petango", "petpoint", "animals", "shelter", "humane"],
+    "type":"contao-module",
+    "license":"LGPL-3.0-or-later",
+    "authors":[
+        {
+            "name":"Andrew Stevens",
+            "homepage":"https://andrewstevens.consulting"
+        }
+    ],
+    "require":{
+        "php": "~5.4 || ~7.0",
+        "contao/core-bundle": "^3.5.2 || ~4.4"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Isotope\\": [
+                "system/modules/petango/library"
+            ]
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "system/modules/petango": "system/modules/petango"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
