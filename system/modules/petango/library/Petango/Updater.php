@@ -78,8 +78,6 @@ class Updater
 			return false;
 		}
 		
-		die($objXml);
-		
 		$this->objAllXml = $objXml;
 	}
 	
@@ -295,6 +293,9 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
+		
+		die("Trigger");
+		
 		if ($this->loadAll()) {
 			
 			// Load First Pass
