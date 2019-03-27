@@ -13,8 +13,10 @@
  
 namespace Petango\Backend;
 
+use Contao\Backend as Contao_Backend;
 
-class Config extends \Backend
+
+class Config extends Contao_Backend
 {
 
 	/**
@@ -110,7 +112,7 @@ class Config extends \Backend
 		}
 
 		// Update the database
-		$this->Database->prepare("UPDATE tl_petango_config SET tstamp=". time() .", active='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
+		Database::getInstance()->prepare("UPDATE tl_petango_config SET tstamp=" .time() .", active='" . ($blnVisible ? 1 : '') ."' WHERE id=?")
 					   ->execute($intId);
 
 		$objVersions->create();

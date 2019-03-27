@@ -13,8 +13,10 @@
  
 namespace Petango\Backend;
 
+use Contao\Backend as Contao_Backend;
 
-class Species extends \Backend
+
+class Species extends Contao_Backend
 {
 
 	/**
