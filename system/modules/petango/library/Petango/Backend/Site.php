@@ -14,7 +14,7 @@
 namespace Petango\Backend;
 
 use Contao\Backend as Contao_Backend;
-
+use Contao\Database;
 
 class Site extends Contao_Backend
 {
@@ -37,7 +37,7 @@ class Site extends Contao_Backend
 			$varValue = standardize(\StringUtil::restoreBasicEntities($dc->activeRecord->name));
 		}
 
-		$objAlias = $this->Database->prepare("SELECT id FROM tl_petango_site WHERE id=? OR alias=?")
+		$objAlias = Database::getInstance()->prepare("SELECT id FROM tl_petango_site WHERE id=? OR alias=?")
 								   ->execute($dc->id, $varValue);
 
 		// Check whether the page alias exists
