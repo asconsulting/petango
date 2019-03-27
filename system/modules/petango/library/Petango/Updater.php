@@ -77,6 +77,9 @@ class Updater
 		if (!$objXml) {
 			return false;
 		}
+		
+		die($objXml);
+		
 		$this->objAllXml = $objXml;
 	}
 	
