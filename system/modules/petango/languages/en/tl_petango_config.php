@@ -17,6 +17,8 @@
 $GLOBALS['TL_LANG']['tl_petango_config']['name'] 				= array('Name', 'Please enter the name');
 $GLOBALS['TL_LANG']['tl_petango_config']['alias'] 				= array('Alias', 'Please enter an alias');
 $GLOBALS['TL_LANG']['tl_petango_config']['auth_key'] 			= array('Authorization Key', 'Please enter the Petango Authorization Key');
+$GLOBALS['TL_LANG']['tl_petango_config']['local_images'] 		= array('Local Images', 'Should images be copied locally');
+$GLOBALS['TL_LANG']['tl_petango_config']['image_folder'] 		= array('Image Folder', 'Folder to store Petango images');
 $GLOBALS['TL_LANG']['tl_petango_config']['update_freq'] 		= array('Update Frequency', 'How often (in minutes) should the data for this configuration be auto-updated. (0 to disable)');
 $GLOBALS['TL_LANG']['tl_petango_config']['last_update'] 		= array('Last Update', 'Date of last update');
 $GLOBALS['TL_LANG']['tl_petango_config']['active'] 				= array('Active', 'Make the configuration active');
