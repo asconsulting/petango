@@ -71,9 +71,8 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
-
-		$strUrl = sprintf($this->strAllUrl, $objConfig->auth_key);
-		die($objConfig->auth_key);
+		
+		$strUrl = sprintf($this->strAllUrl, $this->objConfig->auth_key);
 		$objXml = simplexml_load_file($strUrl);
 		if (!$objXml) {
 			return false;
@@ -87,7 +86,7 @@ class Updater
 			return false;
 		}
 		
-		$strUrl = sprintf($this->strAnimalUrl, $strAnimalId, $objConfig->auth_key);
+		$strUrl = sprintf($this->strAnimalUrl, $strAnimalId, $this->objConfig->auth_key);
 		$objXml = simplexml_load_file($strUrl);
 		if (!$objXml) {
 			return false;
