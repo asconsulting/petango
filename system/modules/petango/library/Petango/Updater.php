@@ -95,6 +95,9 @@ class Updater
 	}
 	
 	private function loadAll() {
+		
+		die("Trigger - loadAll");
+		
 		$this->getAllXml();
 		
 		foreach($this->objAllXml->XmlNode as $objNode) {
@@ -294,8 +297,6 @@ class Updater
 			return false;
 		}
 		
-		die("Trigger");
-		
 		if ($this->loadAll()) {
 			
 			// Load First Pass
@@ -485,6 +486,8 @@ class Updater
 					}
 				}
 			}
+		} else {
+			return false;
 		}
 		return true;
 	}
