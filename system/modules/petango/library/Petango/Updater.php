@@ -430,7 +430,7 @@ class Updater
 			}
 			
 			if (!empty($this->arrAnimalIds)) {
-				Database::getInstance()->execute('UPDATE tl_petango_animal SET active='' WHERE id NOT IN ("' .implode(",", $this->arrAnimalIds) .'")');
+				Database::getInstance()->execute("UPDATE tl_petango_animal SET active='' WHERE id NOT IN ('" .implode("','", $this->arrAnimalIds) ."')");
 			}
 			
 			
