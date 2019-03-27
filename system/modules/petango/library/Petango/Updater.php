@@ -297,14 +297,13 @@ class Updater
 	public function updateAll() {
 		if (!$this->objConfig) {
 			return false;
-		}
-var_dump($this->objConfig);		
+		}		
 		if ($this->loadAll()) {
-
+echo "Load All Success";
 			// Load First Pass
 			foreach($this->arrAnimals as $arrCache) {
+echo "First Loop";
 				$arrAnimal = $this->loadAnimal($arrCache['petango_id']);
-	die($this->arrAnimals);		
 				$objAnimal = Animal::findBy('petango_id', $arrAnimal['petango_id']);
 				if (!$objAnimal) {
 					$objAnimal = new Animal;
