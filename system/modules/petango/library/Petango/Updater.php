@@ -418,7 +418,7 @@ class Updater
 					if ($strBuddy != '') {
 						$objBuddyAnimal = Animal::findBy('petango_id', $strBuddy);
 						if ($objBuddyAnimal) {
-							$arrBuddies[] $objBuddyAnimal->id;
+							$arrBuddies[] = $objBuddyAnimal->id;
 						}
 					}
 				}
