@@ -167,6 +167,7 @@ class Updater
 			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
 			
 		}
+		return true;
 	}
 	
 	private function loadAnimal($strAnimalId) {
@@ -300,6 +301,7 @@ class Updater
 		}		
 		if ($this->loadAll()) {
 echo "Load All Success";
+die("Hmmm");
 			// Load First Pass
 			foreach($this->arrAnimals as $arrCache) {
 echo "First Loop";
