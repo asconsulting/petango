@@ -166,9 +166,6 @@ class Updater
 			
 			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
 			
-			var_dump($arrAnimal);
-			die();
-			
 		}
 	}
 	
