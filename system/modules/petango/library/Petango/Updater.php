@@ -464,7 +464,7 @@ class Updater
 							
 							if ($objFile->exists()) {
 								$objFileModel = $objFile->getModel();
-								if (!in_array($objFileModel->uuid, $arrImages) {
+								if (!in_array($objFileModel->uuid, $arrImages)) {
 									$arrImages[] = $objFileModel->uuid;
 								}
 							}
