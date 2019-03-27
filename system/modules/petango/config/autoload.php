@@ -38,7 +38,7 @@ ClassLoader::addClasses(array
 	'Petango\Module\SiteReader' 		=> 'system/modules/petango/library/Petango/Module/SiteReader.php',
 	
 	'Petango\Updater' 					=> 'system/modules/petango/library/Petango/Updater.php',	
-	'Petango\Automater' 				=> 'system/modules/petango/library/Petango/Automater.php',
+	'Petango\Automator' 				=> 'system/modules/petango/library/Petango/Automator.php',
 ));
 
 
