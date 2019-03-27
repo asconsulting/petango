@@ -418,7 +418,8 @@ class Updater
 				$objAnimal->last_update 			= time();
 				$objAnimal->active 					= '1';
 				$objAnimal->save();
-				
+	var_dump($objAnimal);
+	die();			
 				$this->arrAnimalIds[] = $objAnimal->id;
 			}
 			
