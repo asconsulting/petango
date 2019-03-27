@@ -29,6 +29,6 @@ $GLOBALS['TL_LANG']['FMD']['petango_site_reader'] 		= array('Site Reader', 'Disp
 $GLOBALS['TL_LANG']['MOD']['petango'] 					= array('Petango', 'Peerless Modules');
 $GLOBALS['TL_LANG']['MOD']['petango_config'] 			= array('Config', 'Petango configuration details');
 $GLOBALS['TL_LANG']['MOD']['petango_animal'] 			= array('Animals', 'Petango animal details');
+$GLOBALS['TL_LANG']['MOD']['petango_site'] 				= array('Sites', 'Petango site details');
 $GLOBALS['TL_LANG']['MOD']['petango_location'] 			= array('Locations', 'Petango location details');
 $GLOBALS['TL_LANG']['MOD']['petango_species'] 			= array('Species', 'Petango species details');
-
