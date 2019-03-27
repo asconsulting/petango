@@ -45,6 +45,13 @@ class Updater
 	
 	function __construct($objConfig = null) {
 		$this->loadConfig($objConfig);
+		
+		if (!$this->objConfig) {
+			$objConfig = Config::findByPk(\Input::get('id'));
+			if ($objConfig) {
+				$this->$objConfig = $objConfig;
+			}
+		}
 	}
 	
 	public function loadConfig($objConfig = null) {
