@@ -305,8 +305,6 @@ class Updater
 			foreach($this->arrAnimals as $arrCache) {
 
 				$arrAnimal = $this->loadAnimal($arrCache['petango_id']);
-var_dump($arrAnimal);
-die();
 
 				$objAnimal = Animal::findBy('petango_id', $arrAnimal['petango_id']);
 				if (!$objAnimal) {
