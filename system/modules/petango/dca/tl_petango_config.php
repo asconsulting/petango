@@ -167,7 +167,7 @@ $GLOBALS['TL_DCA']['tl_petango_config'] = array
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true, 'tl_class'=>'clr m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
-		)
+		),
 		'image_folder' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['image_folder'],
