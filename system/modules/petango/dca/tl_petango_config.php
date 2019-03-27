@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA']['tl_petango_config'] = array
     'palettes' => array
     (		
 		'__selector__'                => array('local_images'),
-        'default'                     => '{petango_legend},name,alias,auth_key,local_images,last_update;{active_legend},active;'
+        'default'                     => '{petango_legend},name,alias,auth_key,local_images,update_freq,last_update;{active_legend},active;'
     ),
 	
 	// Subpalettes
