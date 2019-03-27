@@ -21,7 +21,7 @@ if (!array_key_exists('petango', $GLOBALS['BE_MOD'])) {
 $GLOBALS['BE_MOD']['petango'] = array(
 	'petango_config' => array (
 		'tables' => array('tl_petango_config'),
-		'update' => array('Petango\Updater', 'updateConfig')
+		'update' => array('Petango\Updater', 'updateAll')
 	),
 	'petango_animal' => array(
 		'tables' => array('tl_petango_animal')
