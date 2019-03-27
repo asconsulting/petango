@@ -14,9 +14,10 @@
 namespace Petango\Frontend;
 
 use Petango\Model\Animal as Animal_Model;
+use Contao\Frontend as Contao_Frontend;
 
 
-class Animal extends Frontend {
+class Animal extends Contao_Frontend {
 	
 	public function loadReaderPageFromUrl($arrFragments)
     {

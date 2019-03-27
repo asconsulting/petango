@@ -14,9 +14,10 @@
 namespace Petango\Frontend;
 
 use Petango\Model\Site as Site_Model;
+use Contao\Frontend as Contao_Frontend;
 
 
-class Site extends Frontend {
+class Site extends Contao_Frontend {
 	
 	public function loadReaderPageFromUrl($arrFragments)
     {
