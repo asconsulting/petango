@@ -101,9 +101,7 @@ class Updater
 		$this->getAllXml();
 		
 		foreach($this->objAllXml->XmlNode as $objNode) {
-			var_dump($objNode);
-			die();
-			
+
 			$arrAnimal = array();
 			$arrAnimal['petango_id'] 				= trim($objNode->adoptableSearch->ID);
 			$arrAnimal['name'] 						= trim($objNode->adoptableSearch->Name);
@@ -167,6 +165,10 @@ class Updater
 			if ($strPhoto) {$arrAnimal['remote_images'][] = $strPhoto;}
 			
 			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
+			
+			var_dump($arrAnimal);
+			die();
+			
 		}
 	}
 	
