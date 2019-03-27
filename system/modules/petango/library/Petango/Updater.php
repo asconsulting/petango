@@ -356,7 +356,7 @@ class Updater
 				$objSpecies = Species::findBy('name', $arrAnimal['lookup___species']);
 				if (!$objSpecies) {
 					$objSpecies = new Species;
-					$objSpecies->tstamp() = time();
+					$objSpecies->tstamp = time();
 					$objSpecies->name = $arrAnimal['lookup___species'];
 					$objSpecies->source_config = $this->objConfig->id;
 					$objSpecies->save();
