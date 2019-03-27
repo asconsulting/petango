@@ -257,13 +257,13 @@ class Updater
 		else {$arrAnimal['lived_with_animals'] = '';}
 
 		// Process Date Fields
-		$objDate = DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfBirth));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfBirth));
 		if ($objDate) {$arrAnimal['date_of_birth'] = $objDate->getTimestamp();}
 		
-		$objDate = DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->LastIntakeDate));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->LastIntakeDate));
 		if ($objDate) {$arrAnimal['last_intake_date'] = $objDate->getTimestamp();}
 		
-		$objDate = DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfSurrender));
+		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim($objAnimal->DateOfSurrender));
 		if ($objDate) {$arrAnimal['date_surrendered'] = $objDate->getTimestamp();}
 			
 		// Subtable Fields
