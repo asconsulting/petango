@@ -298,15 +298,17 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
+
+			
+			var_dump($this->objConfig);
+			die();
+
 		
 		if ($this->loadAll()) {
 			
 			// Load First Pass
 			foreach($this->arrAnimal as $arrCache) {
 				$arrAnimal = $this->loadAnimal($arrCache['petango_id']);
-			
-			var_dump($arrAnimal);
-			die();
 			
 				$objAnimal = Animal::findBy('petango_id', $arrAnimal['petango_id']);
 				if (!$objAnimal) {
@@ -421,8 +423,7 @@ class Updater
 				$objAnimal->last_update 			= time();
 				$objAnimal->active 					= '1';
 				$objAnimal->save();
-	var_dump($objAnimal);
-	die();			
+
 				$this->arrAnimalIds[] = $objAnimal->id;
 			}
 			
