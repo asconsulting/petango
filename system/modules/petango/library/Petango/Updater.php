@@ -337,6 +337,7 @@ class Updater
 				$objAnimal->application_url 		= $arrAnimal['application_url'];
 				$objAnimal->adoption_cost 			= $arrAnimal['adoption_cost'];
 				
+				var_dump($arrAnimal['remote_images']);
 				$objAnimal->remote_images 			= serialize($arrAnimal['remote_images']);
 
 				$objAnimal->reference_num 			= $arrAnimal['reference_num'];
