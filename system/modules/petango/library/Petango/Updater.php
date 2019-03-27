@@ -301,12 +301,10 @@ class Updater
 		}		
 		if ($this->loadAll()) {
 
-var_dump($this->arrAnimals);
-die();
-
 			// Load First Pass
 			foreach($this->arrAnimals as $arrCache) {
-echo "First Loop";
+var_dump($arrCache);
+die();
 				$arrAnimal = $this->loadAnimal($arrCache['petango_id']);
 				$objAnimal = Animal::findBy('petango_id', $arrAnimal['petango_id']);
 				if (!$objAnimal) {
