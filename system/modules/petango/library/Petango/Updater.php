@@ -101,6 +101,9 @@ class Updater
 		$this->getAllXml();
 		
 		foreach($this->objAllXml->XmlNode as $objNode) {
+			var_dump($objNode);
+			die();
+			
 			$arrAnimal = array();
 			$arrAnimal['petango_id'] 				= trim($objNode->adoptableSearch->ID);
 			$arrAnimal['name'] 						= trim($objNode->adoptableSearch->Name);
