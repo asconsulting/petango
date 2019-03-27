@@ -298,16 +298,11 @@ class Updater
 		if (!$this->objConfig) {
 			return false;
 		}
-
-			
-			var_dump($this->objConfig);
-			die();
-
 		
 		if ($this->loadAll()) {
-			
+
 			// Load First Pass
-			foreach($this->arrAnimal as $arrCache) {
+			foreach($this->arrAnimals as $arrCache) {
 				$arrAnimal = $this->loadAnimal($arrCache['petango_id']);
 			
 				$objAnimal = Animal::findBy('petango_id', $arrAnimal['petango_id']);
@@ -428,7 +423,7 @@ class Updater
 			}
 			
 			// Link Buddies
-			foreach($this->arrAnimal as $arrCache) {
+			foreach($this->arrAnimals as $arrCache) {
 				$arrAnimal['lookup___buddy_animal'];
 				$arrTemp = explode(',', $arrAnimal['lookup___buddy_animal']);
 				$arrBuddies = array();
@@ -461,7 +456,7 @@ class Updater
 				$objFolder->unprotect();
 				
 				if ($objAnimal) {
-					while ($objAnimal->next()) {
+					while ($objAnimals->next()) {
 						$arrImages = StringUtil::deserialize($objAnimal->images);
 						$arrRemoteImages = StringUtil::deserialize($objAnimal->remote_images);
 						
