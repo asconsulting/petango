@@ -103,80 +103,80 @@ class Updater
 		$this->getAllXml();
 		
 		foreach($this->objAllXml->XmlNode as $objNode) {
-
-			$arrAnimal = array();
-			$arrAnimal['petango_id'] 				= trim((string)$objNode->adoptableSearch->ID);
-			$arrAnimal['name'] 						= trim((string)$objNode->adoptableSearch->Name);
-			$arrAnimal['species'] 					= trim((string)$objNode->adoptableSearch->Species);
-			$arrAnimal['breed_primary'] 			= trim((string)$objNode->adoptableSearch->PrimaryBreed);
-			$arrAnimal['breed_secondary'] 			= trim((string)$objNode->adoptableSearch->SecondaryBreed);
-			$arrAnimal['memo_list'] 				= trim((string)$objNode->adoptableSearch->MemoList);
-			$arrAnimal['reference_num'] 			= trim((string)$objNode->adoptableSearch->ARN);
-			$arrAnimal['behavior_test_list'] 		= trim((string)$objNode->adoptableSearch->BehaviorTestList);
-			$arrAnimal['stage'] 					= trim((string)$objNode->adoptableSearch->Stage);
-			$arrAnimal['animal_type'] 				= trim((string)$objNode->adoptableSearch->AnimalType);
-			$arrAnimal['age'] 						= intval(trim((string)$objNode->adoptableSearch->Age));
-			$arrAnimal['wildlife_intake_injury'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeInjury);
-			$arrAnimal['wildlife_intake_cause'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeCause);
-			$arrAnimal['sublocation'] 				= trim((string)$objNode->adoptableSearch->Sublocation);
-			$arrAnimal['microchip_id'] 				= trim((string)$objNode->adoptableSearch->ChipNumber);
-			
-			// Special Field Handling
-			$strSex = strtolower(trim((string)$objNode->adoptableSearch->Sex));
-			if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
-			elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
-			elseif (!isset($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
-
-			$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
-			if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
-			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
-			elseif (!isset($arrAnimal['spayed_neutered'])) {$arrAnimal['spayed_neutered'] = '';}
+			if (trim((string)$objNode->adoptableSearch->ID) != '') {
+				$arrAnimal = array();
+				$arrAnimal['petango_id'] 				= trim((string)$objNode->adoptableSearch->ID);
+				$arrAnimal['name'] 						= trim((string)$objNode->adoptableSearch->Name);
+				$arrAnimal['species'] 					= trim((string)$objNode->adoptableSearch->Species);
+				$arrAnimal['breed_primary'] 			= trim((string)$objNode->adoptableSearch->PrimaryBreed);
+				$arrAnimal['breed_secondary'] 			= trim((string)$objNode->adoptableSearch->SecondaryBreed);
+				$arrAnimal['memo_list'] 				= trim((string)$objNode->adoptableSearch->MemoList);
+				$arrAnimal['reference_num'] 			= trim((string)$objNode->adoptableSearch->ARN);
+				$arrAnimal['behavior_test_list'] 		= trim((string)$objNode->adoptableSearch->BehaviorTestList);
+				$arrAnimal['stage'] 					= trim((string)$objNode->adoptableSearch->Stage);
+				$arrAnimal['animal_type'] 				= trim((string)$objNode->adoptableSearch->AnimalType);
+				$arrAnimal['age'] 						= intval(trim((string)$objNode->adoptableSearch->Age));
+				$arrAnimal['wildlife_intake_injury'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeInjury);
+				$arrAnimal['wildlife_intake_cause'] 	= trim((string)$objNode->adoptableSearch->WildlifeIntakeCause);
+				$arrAnimal['sublocation'] 				= trim((string)$objNode->adoptableSearch->Sublocation);
+				$arrAnimal['microchip_id'] 				= trim((string)$objNode->adoptableSearch->ChipNumber);
 				
-			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
-			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
-			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-			elseif (!isset($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
-				
-			$strOnHold = strtolower(trim((string)$objNode->adoptableSearch->OnHold));
-			if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
-			else {$arrAnimal['on_hold'] = '';}
-			
-			$strSpecialNeeds = strtolower(trim((string)$objNode->adoptableSearch->SpecialNeeds));
-			if ($strSpecialNeeds == "yes" || $strSpecialNeeds == "y") {$arrAnimal['special_needs'] = '1';}
-			else {$arrAnimal['special_needs'] = '';}
-			
-			$strNoDogs = strtolower(trim((string)$objNode->adoptableSearch->NoDogs));
-			if ($strNoDogs == "yes" || $strNoDogs == "y") {$arrAnimal['no_dogs'] = '1';}
-			else {$arrAnimal['no_dogs'] = '';}
-			
-			$strNoCats = strtolower(trim((string)$objNode->adoptableSearch->NoCats));
-			if ($strNoCats == "yes" || $strNoCats == "y") {$arrAnimal['no_cats'] = '1';}
-			else {$arrAnimal['no_cats'] = '';}
-			
-			$strNoKids = strtolower(trim((string)$objNode->adoptableSearch->NoKids));
-			if ($strNoKids == "yes" || $strNoKids == "y") {$arrAnimal['no_kids'] = '1';}
-			else {$arrAnimal['no_kids'] = '';}
+				// Special Field Handling
+				$strSex = strtolower(trim((string)$objNode->adoptableSearch->Sex));
+				if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
+				elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
+				elseif (!isset($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
 
-			$strFeatured = strtolower(trim((string)$objNode->adoptableSearch->Featured));
-			if ($strFeatured == "yes" || $strFeatured == "y") {$arrAnimal['featured'] = '1';}
-			else {$arrAnimal['featured'] = '';}
+				$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
+				if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
+				elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
+				elseif (!isset($arrAnimal['spayed_neutered'])) {$arrAnimal['spayed_neutered'] = '';}
+					
+				$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
+				if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
+				elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
+				elseif (!isset($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
+					
+				$strOnHold = strtolower(trim((string)$objNode->adoptableSearch->OnHold));
+				if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
+				else {$arrAnimal['on_hold'] = '';}
+				
+				$strSpecialNeeds = strtolower(trim((string)$objNode->adoptableSearch->SpecialNeeds));
+				if ($strSpecialNeeds == "yes" || $strSpecialNeeds == "y") {$arrAnimal['special_needs'] = '1';}
+				else {$arrAnimal['special_needs'] = '';}
+				
+				$strNoDogs = strtolower(trim((string)$objNode->adoptableSearch->NoDogs));
+				if ($strNoDogs == "yes" || $strNoDogs == "y") {$arrAnimal['no_dogs'] = '1';}
+				else {$arrAnimal['no_dogs'] = '';}
+				
+				$strNoCats = strtolower(trim((string)$objNode->adoptableSearch->NoCats));
+				if ($strNoCats == "yes" || $strNoCats == "y") {$arrAnimal['no_cats'] = '1';}
+				else {$arrAnimal['no_cats'] = '';}
+				
+				$strNoKids = strtolower(trim((string)$objNode->adoptableSearch->NoKids));
+				if ($strNoKids == "yes" || $strNoKids == "y") {$arrAnimal['no_kids'] = '1';}
+				else {$arrAnimal['no_kids'] = '';}
+
+				$strFeatured = strtolower(trim((string)$objNode->adoptableSearch->Featured));
+				if ($strFeatured == "yes" || $strFeatured == "y") {$arrAnimal['featured'] = '1';}
+				else {$arrAnimal['featured'] = '';}
+				
+				// Subtable Fields
+				$arrAnimal['lookup___buddy_animal'] 	= trim((string)$objNode->adoptableSearch->BuddyID);
+				$arrAnimal['lookup___location'] 		= trim((string)$objNode->adoptableSearch->Location);
 			
-			// Subtable Fields
-			$arrAnimal['lookup___buddy_animal'] 	= trim((string)$objNode->adoptableSearch->BuddyID);
-			$arrAnimal['lookup___location'] 		= trim((string)$objNode->adoptableSearch->Location);
+				// Media
+				$strPhoto = trim((string)$objNode->adoptableSearch->Photo);
+				if ($strPhoto) {$arrAnimal['remote_images'][] = $strPhoto;}
 		
-			// Media
-			$strPhoto = trim((string)$objNode->adoptableSearch->Photo);
-			if ($strPhoto) {$arrAnimal['remote_images'][] = $strPhoto;}
-	
-			foreach ($arrAnimal as $key => $value) {
-				if (is_null($value)) {
-					$arrAnimal['key'] = '';
+				foreach ($arrAnimal as $key => $value) {
+					if (is_null($value)) {
+						$arrAnimal['key'] = '';
+					}
 				}
+				
+				$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
 			}
-			
-			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
-			
 		}
 		return true;
 	}
@@ -445,6 +445,7 @@ class Updater
 				$objAnimal->save();
 
 				$this->arrAnimalIds[] = $objAnimal->id;
+				
 			}
 			
 			// Link Buddies
