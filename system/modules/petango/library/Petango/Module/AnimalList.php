@@ -16,6 +16,7 @@ namespace Petango\Module;
 use Petango\Model\Animal; 
 use Contao\Module;
 use Contao\FrontendTemplate;
+use Contao\StringUtil;
 
  
 class AnimalList extends Module
@@ -123,12 +124,11 @@ class AnimalList extends Module
 			while ($objAnimal->next()) {
 				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
 				$objTemplate->setData($objAnimal->row());
+				$arrImages = StringUtil::deserialize($objAnimal->remote_images);
+				$objTemplate->image = $arrImages[0];
 				$arrAnimals[] = $objTemplate->parse();
 			}
 		}
-		
-		var_dump($arrAnimals);
-		
 		$this->Template->animals = $arrAnimals;
 
 	}
