@@ -125,17 +125,17 @@ class Updater
 			$strSex = strtolower(trim((string)$objNode->adoptableSearch->Sex));
 			if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 			elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
-			else {$arrAnimal['sex'] = '';}
+			elseif (!is_set($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
 
 			$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
 			if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
 			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
-			else {$arrAnimal['spayed_neutered'] = '';}
+			elseif (!is_set($arrAnimal['spayed_neutered'])) {$arrAnimal['spayed_neutered'] = '';}
 				
 			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
 			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-			else {$arrAnimal['age_group'];}
+			elseif (!is_set($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
 				
 			$strOnHold = strtolower(trim((string)$objNode->adoptableSearch->OnHold));
 			if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
@@ -190,7 +190,6 @@ class Updater
 		$arrAnimal['company_id'] 					= trim((string)$objAnimal->CompanyID);
 		$arrAnimal['petango_id'] 					= trim((string)$objAnimal->ID);
 		$arrAnimal['name'] 							= trim((string)$objAnimal->AnimalName);
-		$arrAnimal['altered'] 						= trim((string)$objAnimal->Altered);
 		$arrAnimal['breed_primary'] 				= trim((string)$objAnimal->PrimaryBreed);
 		$arrAnimal['breed_secondary'] 				= trim((string)$objAnimal->SecondaryBreed);
 		$arrAnimal['color_primary'] 				= trim((string)$objAnimal->PrimaryColor);
@@ -222,12 +221,12 @@ class Updater
 		$strSex = strtolower(trim((string)$objAnimal->Sex));
 		if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 		elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
-		else {$arrAnimal['sex'] = '';}
+		elseif (!is_set($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
 		
 		$strAgeGroup = strtolower(trim((string)$objAnimal->AgeGroup));
 		if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 		elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-		else {$arrAnimal['age_group'] = '';}
+		elseif (!is_set($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
 		
 		$strOnHold = strtolower(trim((string)$objAnimal->OnHold));
 		if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
@@ -256,7 +255,11 @@ class Updater
 		$strDeclawed = strtolower(trim((string)$objAnimal->Declawed));
 		if ($strDeclawed == "yes" || $strDeclawed == "y") {$arrAnimal['declawed'] = '1';}
 		else {$arrAnimal['declawed'] = '';}
-
+		
+		$strAltered = strtolower(trim((string)$objAnimal->Altered));
+		if ($strAltered == "yes" || $strAltered == "y") {$arrAnimal['altered'] = '1';}
+		else {$arrAnimal['altered'] = '';}
+		
 		$strHouseTrained = strtolower(trim((string)$objAnimal->Housetrained));
 		if ($strHouseTrained == "yes" || $strHouseTrained == "y") {$arrAnimal['house_trained'] = '1';}
 		else {$arrAnimal['house_trained'] = '';}
