@@ -114,7 +114,7 @@ class AnimalList extends Module
 			
 		}
 		
-		$objAnimal::Animal->findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
+		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
 		
 		if ($objAnimal) {
 			while ($objAnimal->next()) {
