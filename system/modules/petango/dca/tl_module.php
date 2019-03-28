@@ -72,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_sites'] = array
 	'foreignKey'              => 'tl_petango_site.name',
 	'relation'                => array('type'=>'hasMany', 'load'=>'lazy'),	
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_locations'] = array
@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_locations'] = array
 	'foreignKey'              => 'tl_petango_location.name',
 	'relation'                => array('type'=>'hasMany', 'load'=>'lazy'),	
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_stages'] = array
@@ -93,7 +93,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_stages'] = array
 	'inputType'               => 'select',
 	'options_callback'		  => array('Petango\Backend\Module', 'getStages'),
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_on_hold'] = array
@@ -113,7 +113,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_species'] = array
 	'foreignKey'              => 'tl_petango_species.name',
 	'relation'                => array('type'=>'hasMany', 'load'=>'lazy'),	
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_types'] = array
@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_types'] = array
 	'inputType'               => 'select',
 	'options_callback'		  => array('Petango\Backend\Module', 'getTypes'),
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_breeds'] = array
@@ -133,7 +133,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_breeds'] = array
 	'inputType'               => 'select',
 	'options_callback'		  => array('Petango\Backend\Module', 'getBreeds'),
 	'eval'                    => array('multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
-	'sql'                     => "varchar(64) NOT NULL default ''"
+	'sql'                     => "mediumtext NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['filter_configs'] = array
@@ -144,5 +144,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_configs'] = array
 	'eval'                    => array('mandatory'=>true, 'multiple'=>true, 'chosen'=>true, 'tl_class'=>'clr w50'),
 	'foreignKey'              => 'tl_petango_config.name',
 	'relation'                => array('type'=>'hasMany', 'load'=>'lazy'),	
-	'sql'                     => "int(10) unsigned NOT NULL default '0'"
+	'sql'                     => "mediumtext NULL"
 );
