@@ -346,7 +346,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		'remote_images' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['remote_images'],
-			'inputType'               => 'text',
+			'inputType'               => 'listWizard',
 			'default'				  => '',
 			'search'				  => true,
 			'eval'                    => array('multiple'=>true, 'tl_class'=>'clr w50', 'rgxp'=>'url'),
