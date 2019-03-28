@@ -120,4 +120,12 @@ class Config extends Contao_Backend
 		$this->log('A new version of record "tl_petango_config.id='.$intId.'" has been created'.$this->getParentEntries('tl_petango_config', $intId), __METHOD__, TL_GENERAL);
 	}		
 	
+	public function removeRelated(\DataContainer $dc)
+	{
+		\Database::getInstance()->execute('DELETE FROM tl_petango_animal WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->execute('DELETE FROM tl_petango_site WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->execute('DELETE FROM tl_petango_location WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->execute('DELETE FROM tl_petango_species WHERE source_config=?')->execute($dc->id);
+	}
+	
 }

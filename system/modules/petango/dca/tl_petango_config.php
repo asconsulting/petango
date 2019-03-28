@@ -22,6 +22,10 @@ $GLOBALS['TL_DCA']['tl_petango_config'] = array
     (
         'dataContainer'               => 'Table',
         'enableVersioning'            => true,
+		'ondelete_callback' => array
+		(
+			array('Petango\Backend\Config', 'removeAnimals')
+		),
         'sql' => array
         (
             'keys' => array
