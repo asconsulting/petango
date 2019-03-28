@@ -174,7 +174,7 @@ class Updater
 		$this->getAnimalXml($strAnimalId);
 		
 		$objAnimal = $this->arrAnimalXml[$strAnimalId];
-		$arrAnimal = $this->arrAnimalXml[$strAnimalId];
+		$arrAnimal = $this->arrAnimals[$strAnimalId];
 		
 		$arrAnimal['company_id'] 					= trim((string)$objAnimal->CompanyID);
 		$arrAnimal['petango_id'] 					= trim((string)$objAnimal->ID);
