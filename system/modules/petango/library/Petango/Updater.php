@@ -163,6 +163,12 @@ class Updater
 			// Media
 			$strPhoto = trim((string)$objNode->adoptableSearch->Photo);
 			if ($strPhoto) {$arrAnimal['remote_images'][] = $strPhoto;}
+	
+			foreach ($arrAnimal as $key => $value) {
+				if (is_null($value)) {
+					$arrAnimal['key'] = '';
+				}
+			}
 			
 			$this->arrAnimals[$arrAnimal['petango_id']] = $arrAnimal;
 			
@@ -290,6 +296,12 @@ class Updater
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
 		$strPhoto = trim((string)$objAnimal->Photo9);
 		if ($strPhoto && !in_array($arrAnimal['remote_images'])) {$arrAnimal['remote_images'][] = $strPhoto;}
+			
+		foreach ($arrAnimal as $key => $value) {
+			if (is_null($value)) {
+				$arrAnimal['key'] = '';
+			}
+		}	
 			
 		$this->arrAnimals[$strAnimalId] = $arrAnimal;
 		return $arrAnimal;
