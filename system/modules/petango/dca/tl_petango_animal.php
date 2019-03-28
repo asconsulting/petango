@@ -293,7 +293,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		),	
 		'weight' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['age'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['weight'],
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,

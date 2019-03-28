@@ -127,7 +127,9 @@ class Updater
 			$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
 			if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
 			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
-			
+			else {$arrAnimal['spayed_neutered'] = '';}
+				
+				
 			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
 			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
