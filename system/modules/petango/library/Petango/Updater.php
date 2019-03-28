@@ -427,7 +427,7 @@ class Updater
 				}
 		
 				if (!$objLocation) {
-					$objLocation = new Site;
+					$objLocation = new Location;
 					$objLocation->pid = $objSite->id;
 					$objLocation->tstamp = time();
 					$objLocation->name = $arrAnimal['lookup___location'];
