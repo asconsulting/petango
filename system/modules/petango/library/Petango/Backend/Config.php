@@ -122,10 +122,10 @@ class Config extends Contao_Backend
 	
 	public function removeRelated(\DataContainer $dc)
 	{
-		\Database::getInstance()->execute('DELETE FROM tl_petango_animal WHERE source_config=?')->execute($dc->id);
-		\Database::getInstance()->execute('DELETE FROM tl_petango_site WHERE source_config=?')->execute($dc->id);
-		\Database::getInstance()->execute('DELETE FROM tl_petango_location WHERE source_config=?')->execute($dc->id);
-		\Database::getInstance()->execute('DELETE FROM tl_petango_species WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->prepare('DELETE FROM tl_petango_animal WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->prepare('DELETE FROM tl_petango_site WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->prepare('DELETE FROM tl_petango_location WHERE source_config=?')->execute($dc->id);
+		\Database::getInstance()->prepare('DELETE FROM tl_petango_species WHERE source_config=?')->execute($dc->id);
 	}
 	
 }
