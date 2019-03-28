@@ -305,7 +305,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['altered'],
 			'search'                  => true,
 			'inputType'               => 'textarea',
-			'eval'                    => array('class'=>'clr long'),
+			'eval'                    => array('tl_class'=>'clr long'),
 			'sql'                     => "mediumtext NULL"
 		),
 		'declawed' => array
