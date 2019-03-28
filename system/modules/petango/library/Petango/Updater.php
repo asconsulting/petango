@@ -513,6 +513,10 @@ class Updater
 					}
 				}
 			}
+			
+			$this->objConfig->last_update = time();
+			$this->objConfig->save();
+			
 		} else {
 			return false;
 		}
