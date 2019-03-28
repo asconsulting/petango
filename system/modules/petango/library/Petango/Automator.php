@@ -26,7 +26,7 @@ class Automator extends Controller
 		if ($objConfig) {
 			while($objConfig->next()) {
 				if ($objConfig->update_freq >= 5 && ($objConfig->last_update < (time() - (60 * $objConfig->update_freq)))) {
-					$objUpdater = new Updater($objConfig);
+					$objUpdater = new Updater($objConfig->current());
 					$varResult = $objUpdater->updateAll();
 					if ($varResult) {
 						$this->log('Updating petango config "tl_petango_config.id='.$objConfig->id.'"', __METHOD__, TL_GENERAL);
