@@ -44,9 +44,9 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
         ),
         'label' => array
         (
-            'fields'                  => array('name', 'species', 'breed_primary', 'breed_secondary'),
+            'fields'                  => array('name', 'species', 'site', 'breed_primary', 'breed_secondary'),
             'showColumns'             => true,
-            'format'                  => '%s [%s - %s/%s]'
+            'format'                  => '%s %s [%s - %s/%s]'
         ),
         'global_operations' => array
         (
@@ -163,7 +163,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'select',
 			'eval'                    => array('tl_class'=>'clr w50'),
 			'foreignKey'              => 'tl_petango_species.name',
-			'relation'                => array('type'=>'hasOne', 'load'=>'lazy'),	
+			'relation'                => array('type'=>'hasOne', 'load'=>'eager'),	
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'animal_type' => array
@@ -395,7 +395,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'select',
 			'eval'                    => array('tl_class'=>'clr long'),
 			'foreignKey'              => 'tl_petango_site.name',
-			'relation'                => array('type'=>'hasOne', 'load'=>'lazy'),	
+			'relation'                => array('type'=>'hasOne', 'load'=>'eager'),	
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'location' => array
