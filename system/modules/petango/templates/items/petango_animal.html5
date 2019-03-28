@@ -1,0 +1,6 @@
+<div class="animal">
+	<h4><?= $this->name ?></h4>
+	<?php if ($this->image): ?>
+	<img src="<?= $this->image ?>" alt="<?= $this->name ?>">
+	<?php endif; ?>
+</div>
