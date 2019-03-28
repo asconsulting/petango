@@ -130,7 +130,6 @@ class Updater
 			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
 			else {$arrAnimal['spayed_neutered'] = '';}
 				
-				
 			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
 			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
@@ -271,12 +270,15 @@ class Updater
 		// Process Date Fields
 		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->DateOfBirth));
 		if ($objDate) {$arrAnimal['date_of_birth'] = $objDate->getTimestamp();}
+		else {$arrAnimal['date_of_birth'] = '';}
 		
 		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->LastIntakeDate));
 		if ($objDate) {$arrAnimal['last_intake_date'] = $objDate->getTimestamp();}
+		else {$arrAnimal['last_intake_date'] = '';}
 		
 		$objDate = \DateTime::createFromFormat('Y-m-d H:i:s', trim((string)$objAnimal->DateOfSurrender));
 		if ($objDate) {$arrAnimal['date_surrendered'] = $objDate->getTimestamp();}
+		else {$arrAnimal['date_surrendered'] = '';}
 			
 		// Subtable Fields
 		$arrAnimal['lookup___species'] 				= trim((string)$objAnimal->Species);		
@@ -383,8 +385,8 @@ class Updater
 				$objAnimal->memo_list 				= $arrAnimal['memo_list'];
 				$objAnimal->behavior_result 		= $arrAnimal['behavior_result'];
 				$objAnimal->behavior_test_list 		= $arrAnimal['behavior_test_list'];
-				$objAnimal->wildlife_intake_injury 	= $arrAnimal['date_deactivated'];
-				$objAnimal->wildlife_intake_cause 	= $arrAnimal['last_intake_date'];
+				$objAnimal->wildlife_intake_injury 	= $arrAnimal['wildlife_intake_injury'];
+				$objAnimal->wildlife_intake_cause 	= $arrAnimal['wildlife_intake_cause'];
 
 				$objSpecies = Species::findBy('name', $arrAnimal['lookup___species']);
 				if (!$objSpecies) {
