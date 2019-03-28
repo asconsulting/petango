@@ -481,7 +481,7 @@ class Updater
 				$objFolder->unprotect();
 				
 				if ($objAnimal) {
-					while ($objAnimals->next()) {
+					while ($objAnimal->next()) {
 						$arrImages = StringUtil::deserialize($objAnimal->images);
 						$arrRemoteImages = StringUtil::deserialize($objAnimal->remote_images);
 						
