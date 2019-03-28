@@ -117,15 +117,19 @@ class AnimalList extends Module
 		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
 		
-		var_dump($objAnimal);
+		$arrAnimals = array();
 		
 		if ($objAnimal) {
 			while ($objAnimal->next()) {
 				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
 				$objTemplate->setData($objAnimal->row());
-				$this->Template->animals[] = $objTemplate->parse();
+				$arrAnimals[] = $objTemplate->parse();
 			}
 		}
+		
+		var_dump($arrAnimals);
+		
+		$this->Template->animals = $arrAnimals;
 
 	}
 
