@@ -227,7 +227,7 @@ class Updater
 		$strAgeGroup = strtolower(trim((string)$objAnimal->AgeGroup));
 		if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 		elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-		else {$arrAnimal['sex'] = '';}
+		else {$arrAnimal['age_group'] = '';}
 		
 		$strOnHold = strtolower(trim((string)$objAnimal->OnHold));
 		if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
