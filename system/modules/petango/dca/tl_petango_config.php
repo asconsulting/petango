@@ -64,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_petango_config'] = array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_petango_config']['update'],
                 'href'                => 'key=update',
-                'icon'                => 'copy.gif'
+                'icon'                => 'modules.svg'
             ),
 			'edit' => array
             (

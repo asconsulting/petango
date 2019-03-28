@@ -60,7 +60,13 @@ $GLOBALS['TL_DCA']['tl_petango_site'] = array
             )
         ),
         'operations' => array
-        (
+        (		
+			'locations' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_petango_site']['locations'],
+				'href'                => 'table=tl_petango_location',
+				'icon'                => 'modules.svg'
+			),
             'edit' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_petango_site']['edit'],
