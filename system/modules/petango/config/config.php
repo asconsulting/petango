@@ -38,12 +38,12 @@ $GLOBALS['BE_MOD']['petango'] = array(
 /**
 * Front end modules
 */
-$GLOBALS['FE_MOD']['peerless']['petango_animal_list'] 		= 'Petango\Module\AnimalList';
-$GLOBALS['FE_MOD']['peerless']['petango_animal_buddies'] 	= 'Petango\Module\AnimalBuddies';
-$GLOBALS['FE_MOD']['peerless']['petango_animal_reader'] 	= 'Petango\Module\AnimalReader';
-$GLOBALS['FE_MOD']['peerless']['petango_animal_search'] 	= 'Petango\Module\AnimalSearch';
-$GLOBALS['FE_MOD']['peerless']['petango_site_list'] 		= 'Petango\Module\SiteList';
-$GLOBALS['FE_MOD']['peerless']['petango_site_reader'] 		= 'Petango\Module\SiteReader';
+$GLOBALS['FE_MOD']['petango']['petango_animal_list'] 		= 'Petango\Module\AnimalList';
+$GLOBALS['FE_MOD']['petango']['petango_animal_buddies'] 	= 'Petango\Module\AnimalBuddies';
+$GLOBALS['FE_MOD']['petango']['petango_animal_reader'] 		= 'Petango\Module\AnimalReader';
+$GLOBALS['FE_MOD']['petango']['petango_animal_search'] 		= 'Petango\Module\AnimalSearch';
+$GLOBALS['FE_MOD']['petango']['petango_site_list'] 			= 'Petango\Module\SiteList';
+$GLOBALS['FE_MOD']['petango']['petango_site_reader'] 		= 'Petango\Module\SiteReader';
 
 
 /**

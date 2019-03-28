@@ -20,6 +20,7 @@ ClassLoader::addClasses(array
 	'Petango\Backend\Location' 			=> 'system/modules/petango/library/Petango/Backend/Location.php',
 	'Petango\Backend\Site' 				=> 'system/modules/petango/library/Petango/Backend/Site.php',
 	'Petango\Backend\Species' 			=> 'system/modules/petango/library/Petango/Backend/Species.php',
+	'Petango\Backend\Module' 			=> 'system/modules/petango/library/Petango/Backend/Module.php',
 	
 	'Petango\Frontend\Animal' 			=> 'system/modules/petango/library/Petango/Frontend/Animal.php',
 	'Petango\Frontend\Site' 			=> 'system/modules/petango/library/Petango/Frontend/Site.php',

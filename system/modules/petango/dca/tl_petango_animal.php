@@ -288,7 +288,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,
-			'eval'                    => array('maxlength'=>32, 'tl_class'=>'clr w50'),
+			'eval'                    => array('maxlength'=>32, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(32) NOT NULL default ''"
 		),	
 		'weight' => array
@@ -297,7 +297,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,
-			'eval'                    => array('maxlength'=>64, 'tl_class'=>'w50'),
+			'eval'                    => array('maxlength'=>64, 'tl_class'=>'clr w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'altered' => array
@@ -311,7 +311,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['declawed'],
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'clr w50 m12'),
+			'eval'                    => array('tl_class'=>'w50 m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		),	
 		
