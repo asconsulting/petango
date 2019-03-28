@@ -192,7 +192,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'select',
 			'options'				  => array('female'=>'Female', 'male'=>'Male', 'unknown'=>'Unknown'),
 			'eval'                    => array('tl_class'=>'clr w50', 'includeBlankOption'=>true),
-			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'spayed_neutered' => array
 		(
@@ -201,7 +201,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'select',
 			'options'				  => array('spayed'=>'Spayed', 'neutered'=>'Neutered'),
 			'eval'                    => array('tl_class'=>'w50', 'includeBlankOption'=>true),
-			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'age_group' => array
 		(
@@ -210,7 +210,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'select',
 			'options'				  => array('adult'=>'Adult', 'baby'=>'Baby'),
 			'eval'                    => array('tl_class'=>'clr w50', 'includeBlankOption'=>true),
-			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'age' => array
 		(
