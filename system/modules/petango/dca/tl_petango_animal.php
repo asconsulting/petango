@@ -382,7 +382,6 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		'buddy_animals' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['buddy_animals'],
-			'filter'                  => true,
 			'inputType'               => 'select',
 			'eval'                    => array('tl_class'=>'w50', 'chosen'=>true, 'multiple'=>true, 'includeBlankOption'=>true),
 			'foreignKey'              => 'tl_petango_animal.CONCAT(name, " [", petango_id, "]")',
@@ -423,7 +422,8 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['stage'],
 			'inputType'               => 'text',
 			'default'				  => '',
-			'search'				  => true,
+			'search'				  => true,			
+			'filter'                  => true,
 			'eval'                    => array('maxlength'=>255, 'tl_class'=>'clr long'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
