@@ -170,7 +170,7 @@ $GLOBALS['TL_DCA']['tl_petango_config'] = array
 		),
 		'image_folder' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['image_folder'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_config']['image_folder'],
 			'inputType'               => 'fileTree',
 			'eval'                    => array('files'=>false, 'fieldType'=>'radio', 'class'=>'clr w50'),
 			'sql'                     => "blob NULL"
