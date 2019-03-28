@@ -125,17 +125,17 @@ class Updater
 			$strSex = strtolower(trim((string)$objNode->adoptableSearch->Sex));
 			if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 			elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
-			elseif (!is_set($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
+			elseif (!isset($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
 
 			$strSpayNeuter = strtolower(trim((string)$objNode->adoptableSearch->SN));
 			if ($strSpayNeuter == "spay" || $strSpayNeuter == "spayed") {$arrAnimal['spayed_neutered'] = 'spayed';} 
 			elseif ($strSpayNeuter == "neuter" || $strSpayNeuter == "neutered") {$arrAnimal['spayed_neutered'] = 'neutered';}
-			elseif (!is_set($arrAnimal['spayed_neutered'])) {$arrAnimal['spayed_neutered'] = '';}
+			elseif (!isset($arrAnimal['spayed_neutered'])) {$arrAnimal['spayed_neutered'] = '';}
 				
 			$strAgeGroup = strtolower(trim((string)$objNode->adoptableSearch->AgeGroup));
 			if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 			elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-			elseif (!is_set($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
+			elseif (!isset($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
 				
 			$strOnHold = strtolower(trim((string)$objNode->adoptableSearch->OnHold));
 			if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
@@ -221,12 +221,12 @@ class Updater
 		$strSex = strtolower(trim((string)$objAnimal->Sex));
 		if ($strSex == "female" || $strSex == "f") {$arrAnimal['sex'] = 'female';} 
 		elseif ($strSex == "male" || $strSex == "m") {$arrAnimal['sex'] = 'male';}
-		elseif (!is_set($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
+		elseif (!isset($arrAnimal['sex'])) {$arrAnimal['sex'] = '';}
 		
 		$strAgeGroup = strtolower(trim((string)$objAnimal->AgeGroup));
 		if ($strAgeGroup == "adult") {$arrAnimal['age_group'] = 'adult';} 
 		elseif ($strAgeGroup == "baby") {$arrAnimal['age_group'] = 'baby';}
-		elseif (!is_set($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
+		elseif (!isset($arrAnimal['age_group'])) {$arrAnimal['age_group'] = '';}
 		
 		$strOnHold = strtolower(trim((string)$objAnimal->OnHold));
 		if ($strOnHold == "yes" || $strOnHold == "y") {$arrAnimal['on_hold'] = '1';}
