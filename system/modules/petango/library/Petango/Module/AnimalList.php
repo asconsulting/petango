@@ -78,7 +78,7 @@ class AnimalList extends Module
 		if (!empty($arrTypes)) {$arrColumns[] = 'animal_type IN SET ("'. implode('","', $arrTypes) .'")';}
 
 		$arrBreeds = \StringUtil::deserialize($this->filter_breeds);
-		if (!empty($arrBreeds)) {$arrColumns[] = '(breed_primary IN SET ("'. implode('","', $arrBreeds)) .') OR breed_secondary IN SET ("'. implode('","', $arrBreeds) .'))';}
+		if (!empty($arrBreeds)) {$arrColumns[] = '(breed_primary IN SET ("'. implode('","', $arrBreeds) .') OR breed_secondary IN SET ("'. implode('","', $arrBreeds) .'))';}
 
 		$arrConfig = \StringUtil::deserialize($this->filter_configs);
 		$arrColumns[] = 'source_config IN SET ("'. implode('","', $arrConfig) .'")';
