@@ -214,7 +214,7 @@ class Updater
 		$arrAnimal['sublocation'] 					= trim((string)$objAnimal->Sublocation);
 		$arrAnimal['microchip_id'] 					= trim((string)$objAnimal->ChipNumber);
 		$arrAnimal['color_pattern'] 				= trim((string)$objAnimal->ColorPattern);
-		$arrAnimal['adoption_url'] 					= trim((string)$objAnimal->AdoptionApplicationUrl);
+		$arrAnimal['application_url'] 				= trim((string)$objAnimal->AdoptionApplicationUrl);
 		
 		// Special Field Handling
 		$strSex = strtolower(trim((string)$objAnimal->Sex));
@@ -367,7 +367,6 @@ class Updater
 				$objAnimal->stage 					= $arrAnimal['stage'];
 				$objAnimal->on_hold 				= $arrAnimal['on_hold'];
 				$objAnimal->featured 				= $arrAnimal['featured'];
-				$objAnimal->date_deactivated 		= $arrAnimal['date_deactivated'];
 				$objAnimal->last_intake_date 		= $arrAnimal['last_intake_date'];
 
 				$objAnimal->surrender_reason 		= $arrAnimal['surrender_reason'];
