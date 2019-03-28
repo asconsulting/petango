@@ -438,7 +438,8 @@ class Updater
 					$objLocation->source_config = $this->objConfig->id;
 					$objLocation->save();
 				}
-				$objAnimal->location					= $objLocation->id;
+				
+				$objAnimal->location				= $objLocation->id;
 				
 				$objAnimal->last_update 			= time();
 				$objAnimal->active 					= '1';

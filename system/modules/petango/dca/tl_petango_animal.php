@@ -44,9 +44,9 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
         ),
         'label' => array
         (
-            'fields'                  => array('name'),
+            'fields'                  => array('name', 'species', 'breed_primary', 'breed_secondary'),
             'showColumns'             => true,
-            'format'                  => '%s'
+            'format'                  => '%s [%s - %s/%s]'
         ),
         'global_operations' => array
         (
