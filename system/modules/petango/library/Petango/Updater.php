@@ -23,6 +23,8 @@ use Contao\FilesModel;
 use Contao\File;
 use Contao\Files;
 use Contao\Folder;
+use Contao\Database;
+
 
 class Updater 
 {
