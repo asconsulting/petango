@@ -15,6 +15,7 @@ namespace Petango\Module;
  
 use Petango\Model\Animal; 
 use Contao\Module;
+use Contao\FrontendTemplate;
 
  
 class AnimalList extends Module
