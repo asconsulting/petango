@@ -234,7 +234,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,
-			'eval'                    => array('maxlength'=>64, 'tl_class'=>'clr w50'),
+			'eval'                    => array('maxlength'=>64, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),		
 		'breed_primary' => array
@@ -341,7 +341,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['images'],
 			'inputType'               => 'fileTree',
-			'eval'                    => array('filesOnly'=>true, 'multiple'=>true, 'extensions'=>Config::get('validImageTypes'), 'fieldType'=>'checkbox', 'class'=>'clr w50'),
+			'eval'                    => array('filesOnly'=>true, 'multiple'=>true, 'extensions'=>Config::get('validImageTypes'), 'fieldType'=>'checkbox', 'tl_class'=>'clr w50'),
 			'sql'                     => "blob NULL"
 		),
 		'remote_images' => array
@@ -357,7 +357,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_petango_animal']['additional_media'],
 			'inputType'               => 'fileTree',
-			'eval'                    => array('filesOnly'=>true, 'multiple'=>'true', 'extensions'=>Config::get('validImageTypes'), 'fieldType'=>'checkbox', 'class'=>'clr w50'),
+			'eval'                    => array('filesOnly'=>true, 'multiple'=>'true', 'extensions'=>Config::get('validImageTypes'), 'fieldType'=>'checkbox', 'tl_class'=>'clr w50'),
 			'sql'                     => "blob NULL"
 		),
 		'video_id' => array
@@ -366,7 +366,7 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,
-			'eval'                    => array('maxlength'=>64, 'tl_class'=>'w50'),
+			'eval'                    => array('maxlength'=>64, 'tl_class'=>'clr w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),	
 		

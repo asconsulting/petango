@@ -55,7 +55,7 @@ $GLOBALS['TL_LANG']['tl_petango_animal']['date_added'] 				= array('Date Added',
 $GLOBALS['TL_LANG']['tl_petango_animal']['date_deactivated'] 		= array('Date Deactivated', 'Date animal was deactivated');
 $GLOBALS['TL_LANG']['tl_petango_animal']['last_update'] 			= array('Last Update', 'Date animal was last syncronized');
 
-$GLOBALS['TL_LANG']['tl_petango_animal']['adoption_url'] 			= array('Adoption URL', 'Url to adoption form');
+$GLOBALS['TL_LANG']['tl_petango_animal']['application_url'] 		= array('Adoption Application URL', 'Url to adoption form');
 $GLOBALS['TL_LANG']['tl_petango_animal']['adoption_cost'] 			= array('Adoption Cost', 'Cost to adopt this animal');
 
 $GLOBALS['TL_LANG']['tl_petango_animal']['surrender_reason'] 		= array('Reason Surrendered', 'Reason for animal surrender');
