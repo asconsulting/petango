@@ -297,8 +297,8 @@ $GLOBALS['TL_DCA']['tl_petango_animal'] = array
 			'inputType'               => 'text',
 			'default'				  => '',
 			'search'				  => true,
-			'eval'                    => array('maxlength'=>4, 'tl_class'=>'w50', 'rgxp'=>'digit', 'minval'=>0, 'maxval'=>9999),
-			'sql'                     => "varchar(4) NOT NULL default ''"
+			'eval'                    => array('maxlength'=>64, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'altered' => array
 		(
