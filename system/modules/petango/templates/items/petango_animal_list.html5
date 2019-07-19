@@ -2,5 +2,11 @@
 	<a href="/adopt/<?= $this->reader_link ?>"><h4><?= $this->name ?></h4></a>
 	<?php if ($this->image): ?>
 	<a href="<?= $this->reader_link ?>"><img src="<?= $this->image ?>" alt="<?= $this->name ?>"></a>
+	
+	<div class="petango_info">
+		<div class="gender"><strong>Gender:</strong> <?= $this->gender ?></div>
+		<div class="location"><strong>Location:</strong> <?= $this->site ?></div>
+	</div>
+	<a href="<?= $this->reader_link ?>">Full Details</a>
 	<?php endif; ?>
 </div>

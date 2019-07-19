@@ -128,6 +128,7 @@ class AnimalList extends Module
 				$arrImages = StringUtil::deserialize($objAnimal->remote_images);
 				$objTemplate->thumbnail = $arrImages[0];
 				$objTemplate->image = $arrImages[1];
+				$objTemplate->images = $arrImages;
 				$arrAnimals[] = $objTemplate->parse();
 			}
 		}

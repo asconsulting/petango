@@ -14,6 +14,7 @@
 namespace Petango\Module;
  
 use Petango\Model\Animal; 
+use Petango\Model\Site; 
 use Contao\Module;
 
  
@@ -62,6 +63,17 @@ class AnimalReader extends Module
 		if ($objAnimal) {
 			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
 			$objTemplate->setData($objAnimal->row());
+			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
+			$arrImages = StringUtil::deserialize($objAnimal->remote_images);
+			$objTemplate->thumbnail = $arrImages[0];
+			$objTemplate->image = $arrImages[1];
+			$objTemplate->images = $arrImages;
+			
+			$objSite = Site::findByPk($objAnimal->site);
+			if ($objSite) {
+				$objTemplate->site = $objSite->name;
+			}
+			
 			$this->Template->animal = $objTemplate->parse();
 		}
 	}
