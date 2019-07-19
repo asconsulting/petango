@@ -34,7 +34,7 @@ ClassLoader::addClasses(array
     'Petango\Module\AnimalList' 		=> 'system/modules/petango/library/Petango/Module/AnimalList.php',
     'Petango\Module\AnimalBuddies' 		=> 'system/modules/petango/library/Petango/Module/AnimalBuddies.php',
 	'Petango\Module\AnimalReader' 		=> 'system/modules/petango/library/Petango/Module/AnimalReader.php',
-	'Petango\Module\AnimalReader' 		=> 'system/modules/petango/library/Petango/Module/AnimalRandom.php',
+	'Petango\Module\AnimalRandom' 		=> 'system/modules/petango/library/Petango/Module/AnimalRandom.php',
 	'Petango\Module\AnimalSearch' 		=> 'system/modules/petango/library/Petango/Module/AnimalSearch.php',
     'Petango\Module\SiteList' 			=> 'system/modules/petango/library/Petango/Module/SiteList.php',
 	'Petango\Module\SiteReader' 		=> 'system/modules/petango/library/Petango/Module/SiteReader.php',
