@@ -26,9 +26,10 @@ class Animal extends Contao_Frontend {
 			return $arrFragments;
 		}
 		
-		var_dump($arrFragments);
-		die();
-
+		if ($arrFragments[0] == 'adopt' && $arrFragments[2] != '') {
+			var_dump($arrFragments);
+			die();
+		}
 		
         return $arrFragments;
     }
