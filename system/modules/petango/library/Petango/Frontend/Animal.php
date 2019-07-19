@@ -13,8 +13,9 @@
 
 namespace Petango\Frontend;
 
-use Petango\Model\Animal as Animal_Model;
 use Contao\Frontend as Contao_Frontend;
+use Contao\PageModel;
+use Petango\Model\Animal as Animal_Model;
 
 
 class Animal extends Contao_Frontend {
@@ -22,13 +23,23 @@ class Animal extends Contao_Frontend {
 	public function loadReaderPageFromUrl($arrFragments)
     {
 
-		if ($objPage = \PageModel::findPublishedByIdOrAlias($arrFragments[0])) {
+		if ($objPage = PageModel::findPublishedByIdOrAlias($arrFragments[0])) {
 			return $arrFragments;
 		}
 		
 		if ($arrFragments[0] == 'adopt' && $arrFragments[2] != '') {
-			var_dump($arrFragments);
-			die();
+			$objPage = PageModel::findBy('petango_animal_reader', '1');
+			
+			$strPageAlias = $arrFragments[2];
+			if (substr($strPageAlias, -5) == '.html') {
+				$strPageAlias = substr($strPageAlias, 0, -5);
+			}
+			
+			$objAnimal = Animal::findBy('alias', $strPageAlias);
+			
+			if ($objPage && $objAnimal) {
+				return array($objPage->alias);
+			}
 		}
 		
         return $arrFragments;

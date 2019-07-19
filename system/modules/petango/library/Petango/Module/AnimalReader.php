@@ -54,8 +54,19 @@ class AnimalReader extends Module
      */
     protected function compile()
     {
-
-	
+		$strPageAlias = \Environment::get('request');
+		if (substr($strPageAlias, -5) == '.html') {
+			$strPageAlias = substr($strPageAlias, 0, -5);
+		}
+		
+		$objAnimal = Animal::findBy('alias', $strPageAlias);
+		
+		if ($objAnimal) {
+			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
+			$objTemplate->setData($objAnimal->row());
+			$this->Template->animal = $objTemplate->parse();
+			
+		}
 	}
 
 } 
