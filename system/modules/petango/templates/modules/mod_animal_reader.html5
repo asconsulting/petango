@@ -6,7 +6,7 @@
 
 	<div class="animal_reader">
 	<?php if ($this->animal): ?>
-	<?= $animal ?>
+	<?= $this->animal ?>
 	<?php endif; ?>
 	</div>
 
