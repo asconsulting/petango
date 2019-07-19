@@ -26,6 +26,8 @@ class Animal extends Contao_Frontend {
 			return $arrFragments;
 		}
 		
+		var_dump($arrFragments);
+		die();
 
 		
         return $arrFragments;
