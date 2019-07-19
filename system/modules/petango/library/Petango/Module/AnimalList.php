@@ -129,14 +129,14 @@ class AnimalList extends Module
 				$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
 				$arrImages = array();
 				foreach($arrTemp as $strImage) {
-					$strImage = str_replace('http://', '//', $strImage[0]);
+					$strImage = str_replace('http://', '//', $strImage);
 					if ($strImage != '') {
 						$arrImages[] = $strImage;
 					}
 				}
 				$objTemplate->thumbnail = $arrImages[0];
 				$objTemplate->image = $arrImages[1];
-				//array_shift($arrImages);
+				array_shift($arrImages);
 				$objTemplate->images = $arrImages;
 			
 				$strAge = '';
