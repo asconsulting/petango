@@ -26,7 +26,7 @@ class AnimalRandom extends Module
      * Template
      * @var string
      */
-    protected $strTemplate = 'mod_animal_reader';
+    protected $strTemplate = 'mod_animal_random';
  
     /**
      * Display a wildcard in the back end
@@ -89,44 +89,43 @@ class AnimalRandom extends Module
 		}
 		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
+		$arrModels = $objAnimal->getModels();
+		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
 		
 		$arrAnimals = array();
 		
 		if ($objAnimal) {
-			while ($objAnimal->next()) {
-				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_list');
-				$objTemplate->setData($objAnimal->row());
-				$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
-				$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
-				$arrImages = array();
-				foreach($arrTemp as $strImage) {
-					$strImage = str_replace('http://', '//', $strImage);
-					if ($strImage != '') {
-						$arrImages[] = $strImage;
-					}
+			$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_random');
+			$objTemplate->setData($objAnimal->row());
+			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
+			$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
+			$arrImages = array();
+			foreach($arrTemp as $strImage) {
+				$strImage = str_replace('http://', '//', $strImage);
+				if ($strImage != '') {
+					$arrImages[] = $strImage;
 				}
-				$objTemplate->thumbnail = $arrImages[0];
-				$objTemplate->image = $arrImages[1];
-				array_shift($arrImages);
-				$objTemplate->images = $arrImages;
-			
-				$strAge = '';
-				if ($objAnimal->age > 1 && $objAnimal->age < 12) {
-					$strAge = $objAnimal->age ." months";
-				} else if ($objAnimal->age > 11) {
-					$strAge = floor(intval($objAnimal->age) / 12) ." years";
-				}
-				$objTemplate->age = $strAge;
-			
-				$objSite = Site::findByPk($objAnimal->site);
-				if ($objSite) {
-					$objTemplate->site = $objSite->name;
-				}
-				
-				$arrAnimals[] = $objTemplate->parse();
 			}
+			$objTemplate->thumbnail = $arrImages[0];
+			$objTemplate->image = $arrImages[1];
+			array_shift($arrImages);
+			$objTemplate->images = $arrImages;
+		
+			$strAge = '';
+			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
+				$strAge = $objAnimal->age ." months";
+			} else if ($objAnimal->age > 11) {
+				$strAge = floor(intval($objAnimal->age) / 12) ." years";
+			}
+			$objTemplate->age = $strAge;
+		
+			$objSite = Site::findByPk($objAnimal->site);
+			if ($objSite) {
+				$objTemplate->site = $objSite->name;
+			}
+				
+			$this->Template->animal = $objTemplate->parse();
 		}
-		$this->Template->animals = $arrAnimals;
 
 	}
 
