@@ -74,7 +74,7 @@ class AnimalReader extends Module
 			}
 			$objTemplate->thumbnail = $arrImages[0];
 			$objTemplate->image = $arrImages[1];
-			array_shift($arrImages);
+			//array_shift($arrImages);
 			$objTemplate->images = $arrImages;
 			
 			
