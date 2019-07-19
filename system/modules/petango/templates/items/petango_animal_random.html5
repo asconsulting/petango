@@ -1,0 +1,13 @@
+<div class="animal">
+	<a href="/adopt/<?= $this->reader_link ?>"><h4><?= $this->name ?></h4></a>
+	<?php if ($this->image): ?>
+	<a href="<?= $this->reader_link ?>"><img src="<?= $this->image ?>" alt="<?= $this->name ?>"></a>
+	
+	<div class="petango_info">
+		<?php if ($this->age): ?><div class="age item"><span class="label">Age:</span> <?= $this->age; ?></div><?php endif; ?>
+		<?php if ($this->sex || $this->spayed_neutered): ?><div class="gender item"><span class="label">Gender:</span> <?= $this->spayed_neutered; ?> <?= $this->sex; ?></div><?php endif; ?>
+		<?php if ($this->site): ?><div class="location item"><span class="label">Location:</span> <?= $this->site; ?></div><?php endif; ?>
+	</div>
+	<a href="<?= $this->reader_link ?>">Full Details</a>
+	<?php endif; ?>
+</div>

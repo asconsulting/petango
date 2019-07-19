@@ -1,0 +1,27 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+<!-- indexer::stop -->
+<p class="back"><a href="<?= $this->referer ?>" title="<?= $this->back ?>"><?= $this->back ?></a></p>
+<!-- indexer::continue -->
+
+<?php if ($this->headline): ?>
+<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+
+<div class="mod_petango">
+	<?php if ($this->animal): ?>
+	<?= $this->animal ?>
+	<?php endif; ?>
+</div>
+<script>
+$(window).load(function() {
+	$('.flexslider').flexslider({
+		controlNav: "thumbnails",
+		directionNav: false,
+		slideshow: false
+	});
+});
+</script>
+
+<?php $this->endblock(); ?>

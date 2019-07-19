@@ -18,6 +18,7 @@ $GLOBALS['TL_LANG']['FMD']['petango']					= array('Petango', 'Petango Modules');
 $GLOBALS['TL_LANG']['FMD']['petango_animal_list'] 		= array('Animal List', 'Lists Petango animals');
 $GLOBALS['TL_LANG']['FMD']['petango_animal_buddies'] 	= array('Animal Buddies', 'List Buddies of petango animal');
 $GLOBALS['TL_LANG']['FMD']['petango_animal_reader'] 	= array('Animal Reader', 'Displays a petango animal\'s information');
+$GLOBALS['TL_LANG']['FMD']['petango_animal_random'] 	= array('Random Animal', 'Displays a random petango animal');
 $GLOBALS['TL_LANG']['FMD']['petango_animal_search'] 	= array('Animal Search', 'Searches petango animals');
 $GLOBALS['TL_LANG']['FMD']['petango_site_list'] 		= array('Site List', 'Lists Petango sites');
 $GLOBALS['TL_LANG']['FMD']['petango_site_reader'] 		= array('Site Reader', 'Displays a petango site details');
