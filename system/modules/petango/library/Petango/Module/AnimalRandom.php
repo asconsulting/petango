@@ -98,18 +98,30 @@ class AnimalRandom extends Module
 			$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_random');
 			$objTemplate->setData($objAnimal->row());
 			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
+
+			$boolNoImage = false;
 			$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
 			$arrImages = array();
 			foreach($arrTemp as $strImage) {
-				$strImage = str_replace('http://', '//', $strImage);
-				if ($strImage != '') {
-					$arrImages[] = $strImage;
+				if (stristr($strImage, 'Photo-Not-Available') === false) {
+					$strImage = str_replace('http://', '//', $strImage);
+					if ($strImage != '') {
+						$arrImages[] = $strImage;
+					}	
+				} else {
+					$boolNoImage = true;
 				}
 			}
-			$objTemplate->thumbnail = $arrImages[0];
-			$objTemplate->image = $arrImages[1];
-			array_shift($arrImages);
-			$objTemplate->images = $arrImages;
+			
+			if (!$boolNoImage) {
+				$objTemplate->thumbnail = $arrImages[0];
+				$objTemplate->image = $arrImages[1];
+				array_shift($arrImages);
+				$objTemplate->images = $arrImages;
+			} else {
+				$objTemplate->no_image = true;
+				$objTemplate->images = array();
+			}
 		
 			$strAge = '';
 			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
