@@ -60,7 +60,7 @@ class AnimalReader extends Module
 		}
 		
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
-		
+		var_dump($strPageAlias);
 		var_dump($objAnimal);
 		
 		if ($objAnimal) {
