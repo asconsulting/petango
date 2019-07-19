@@ -35,7 +35,7 @@ class Animal extends Contao_Frontend {
 				$strPageAlias = substr($strPageAlias, 0, -5);
 			}
 			
-			$objAnimal = Animal::findBy('alias', $strPageAlias);
+			$objAnimal = Animal_Model::findBy('alias', $strPageAlias);
 			
 			if ($objPage && $objAnimal) {
 				return array($objPage->alias);
