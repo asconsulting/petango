@@ -14,6 +14,7 @@
 namespace Petango\Module;
  
 use Petango\Model\Animal; 
+use Petango\Model\Site; 
 use Contao\Module;
 use Contao\FrontendTemplate;
 use Contao\StringUtil;
