@@ -72,7 +72,7 @@ class AnimalReader extends Module
 			$strAge = '';
 			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
 				$strAge = $objAnimal->age ." months";
-			} else ($objAnimal->age > 11) {
+			} else if ($objAnimal->age > 11) {
 				$strAge = floor(intval($objAnimal->age) / 12) ." years";
 			}
 			$objTemplate->age = $strAge;
