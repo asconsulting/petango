@@ -61,7 +61,7 @@ class AnimalReader extends Module
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
 		
 		if ($objAnimal) {
-			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
+			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_reader');
 			$objTemplate->setData($objAnimal->row());
 			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
 			$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
