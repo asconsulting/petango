@@ -56,5 +56,7 @@ TemplateLoader::addFiles(array
     'mod_site_reader' 					=> 'system/modules/petango/templates/modules',
 	
     'petango_animal' 					=> 'system/modules/petango/templates/items',
+    'petango_animal_list' 				=> 'system/modules/petango/templates/items',
+    'petango_animal_full' 				=> 'system/modules/petango/templates/items',
     'petango_site' 						=> 'system/modules/petango/templates/items',
 ));

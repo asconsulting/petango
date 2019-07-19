@@ -122,7 +122,7 @@ class AnimalList extends Module
 		
 		if ($objAnimal) {
 			while ($objAnimal->next()) {
-				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
+				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_list');
 				$objTemplate->setData($objAnimal->row());
 				$arrImages = StringUtil::deserialize($objAnimal->remote_images);
 				$objTemplate->thumbnail = $arrImages[0];
