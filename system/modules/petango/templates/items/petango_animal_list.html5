@@ -1,0 +1,6 @@
+<div class="animal">
+	<a href="/adopt/<?= $this->alias ?>"><h4><?= $this->name ?></h4></a>
+	<?php if ($this->image): ?>
+	<a href="/adopt/<?= $this->alias ?>"><img src="<?= $this->image ?>" alt="<?= $this->name ?>"></a>
+	<?php endif; ?>
+</div>
