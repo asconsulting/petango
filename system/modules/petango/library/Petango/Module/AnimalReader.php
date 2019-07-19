@@ -61,6 +61,8 @@ class AnimalReader extends Module
 		
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
 		
+		var_dump($objAnimal);
+		
 		if ($objAnimal) {
 			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal');
 			$objTemplate->setData($objAnimal->row());
