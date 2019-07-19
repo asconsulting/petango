@@ -16,7 +16,7 @@ namespace Petango\Module;
 use Petango\Model\Animal; 
 use Petango\Model\Site; 
 use Contao\Module;
-
+use Contao\StringUtil;
  
 class AnimalReader extends Module
 {
