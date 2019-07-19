@@ -127,8 +127,8 @@ class AnimalList extends Module
 				$objTemplate->setData($objAnimal->row());
 				$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
 				$arrImages = StringUtil::deserialize($objAnimal->remote_images);
-				$objTemplate->thumbnail = $arrImages[0];
-				$objTemplate->image = $arrImages[1];
+				$objTemplate->thumbnail = str_replace('http://', '//', $arrImages[0]);
+				$objTemplate->image = str_replace('http://', '//', $arrImages[1]);
 				$objTemplate->images = $arrImages;
 			
 				$strAge = '';
