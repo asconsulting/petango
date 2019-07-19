@@ -69,6 +69,14 @@ class AnimalReader extends Module
 			$objTemplate->image = $arrImages[1];
 			$objTemplate->images = $arrImages;
 			
+			$strAge = '';
+			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
+				$strAge = $objAnimal->age ." months";
+			} else ($objAnimal->age > 11) {
+				$strAge = floor(intval($objAnimal->age) / 12) ." years";
+			}
+			$objTemplate->age = $strAge;
+			
 			$objSite = Site::findByPk($objAnimal->site);
 			if ($objSite) {
 				$objTemplate->site = $objSite->name;

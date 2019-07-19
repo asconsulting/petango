@@ -4,6 +4,7 @@
 	<a href="<?= $this->reader_link ?>"><img src="<?= $this->image ?>" alt="<?= $this->name ?>"></a>
 	
 	<div class="petango_info">
+		<div class="age"><strong>Age:</strong> <?= $this->age ?></div>
 		<div class="gender"><strong>Gender:</strong> <?= $this->gender ?></div>
 		<div class="location"><strong>Location:</strong> <?= $this->site ?></div>
 	</div>
