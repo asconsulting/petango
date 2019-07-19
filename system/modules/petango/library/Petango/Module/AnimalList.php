@@ -126,9 +126,17 @@ class AnimalList extends Module
 				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_list');
 				$objTemplate->setData($objAnimal->row());
 				$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
-				$arrImages = StringUtil::deserialize($objAnimal->remote_images);
-				$objTemplate->thumbnail = str_replace('http://', '//', $arrImages[0]);
-				$objTemplate->image = str_replace('http://', '//', $arrImages[1]);
+				$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
+				$arrImages = array();
+				foreach($arrTemp as $strImage) {
+					$strImage = str_replace('http://', '//', $strImage[0]);
+					if ($strImage != '') {
+						$arrImages[] = $strImage;
+					}
+				}
+				$objTemplate->thumbnail = $arrImages[0];
+				$objTemplate->image = $arrImages[1];
+				array_shift($arrImages);
 				$objTemplate->images = $arrImages;
 			
 				$strAge = '';

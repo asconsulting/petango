@@ -1,0 +1,26 @@
+<div class="animal_details">
+	<div class="size1of2">
+	  <div class="pet_gallery">
+		<div class="flexslider">
+		  <ul class="slides">
+			<?php $i=0; foreach ($this->images as $strImage): ?>
+			<li data-thumb="<?= $strImage ?>">
+			    <img src="<?= $strImage ?>" />
+			</li>
+			 <?php $i++; endforeach; ?>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+	<div class="size1of2 last">
+	  <h1>Meet <?= $this->name; ?></h1>
+	  <div class="pet_info">
+		  <?php if ($this->breed_primary): ?><div class="breed item"><?= $this->breed_primary; ?></div><?php endif; ?>
+		  <?php if ($this->site): ?><div class="location item"><span class="label">Location:</span> <?= $this->site; ?></div><?php endif; ?>
+		  <?php if ($this->sex || $this->spayed_neutered): ?><div class="gender item"><span class="label">Gender:</span> <?= $this->spayed_neutered; ?> <?= $this->sex; ?></div><?php endif; ?>
+		  <?php if ($this->age): ?><div class="age item"><span class="label">Age:</span> <?= $this->age; ?></div><?php endif; ?>
+		  <?php if ($this->weight): ?><div class="weight item"><span class="label">Weight:</span> <?= $this->weight; ?></div><?php endif; ?>
+		  <?php if ($this->description): ?><div class="decription item"><?= $this->description; ?></div><?php endif; ?>
+	  </div>
+	</div>
+</div>
