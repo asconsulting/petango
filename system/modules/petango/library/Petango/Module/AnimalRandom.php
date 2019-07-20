@@ -60,7 +60,7 @@ class AnimalRandom extends Module
 		$arrColumns = array();
 		$strOrder = 'name';
 
-		$arrColumns[] = 'active ="1"';
+		$arrColumns[] = "active ='1'";
 		
 		if ($this->filter_image) {
 			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
@@ -70,27 +70,27 @@ class AnimalRandom extends Module
 		if (!empty($arrSites)) {$arrColumns[] = "site IN SET ('". implode("','", $arrSites) ."')";}
 		
 		$arrLocations = \StringUtil::deserialize($filter_locations->sites);
-		if (!empty($arrLocations)) {$arrColumns[] = 'location IN SET ("'. implode('","', $arrLocations) .'")';}
+		if (!empty($arrLocations)) {$arrColumns[] = "location IN SET ('". implode("','", $arrLocations) ."')";}
 		
 		$arrStages = \StringUtil::deserialize($this->filter_stages);
-		if (!empty($arrStages)) {$arrColumns[] = 'stage IN SET ("'. implode('","', $arrStages) .'")';}
+		if (!empty($arrStages)) {$arrColumns[] = "stage IN SET ('". implode("','", $arrStages) ."')";}
 		
-		if ($this->filter_on_hold) {$arrColumns[] = 'on_hold !="1"';}
+		if ($this->filter_on_hold) {$arrColumns[] = "on_hold !='1'";}
 		
 		$arrSpecies = \StringUtil::deserialize($this->filter_species);
-		if (!empty($arrSpecies)) {$arrColumns[] = 'species IN SET ("'. implode('","', $arrSpecies) .'")';}
+		if (!empty($arrSpecies)) {$arrColumns[] = "species IN SET ('". implode("','", $arrSpecies) ."')";}
 
 		$arrTypes = \StringUtil::deserialize($this->filter_types);
-		if (!empty($arrTypes)) {$arrColumns[] = 'animal_type IN SET ("'. implode('","', $arrTypes) .'")';}
+		if (!empty($arrTypes)) {$arrColumns[] = "animal_type IN SET ('". implode("','", $arrTypes) ."')";}
 
 		$arrBreeds = \StringUtil::deserialize($this->filter_breeds);
-		if (!empty($arrBreeds)) {$arrColumns[] = '(breed_primary IN SET ("'. implode('","', $arrBreeds) .') OR breed_secondary IN SET ("'. implode('","', $arrBreeds) .'))';}
+		if (!empty($arrBreeds)) {$arrColumns[] = "(breed_primary IN SET ('". implode("','", $arrBreeds) ."') OR breed_secondary IN SET ('". implode("','", $arrBreeds) ."'))";}
 
 		$arrConfig = \StringUtil::deserialize($this->filter_configs);
-		$arrColumns[] = 'source_config IN SET ("'. implode('","', $arrConfig) .'")';
+		$arrColumns[] = "source_config IN SET ('". implode("','", $arrConfig) ."')";
 
 		if ($this->featured_animals == 'only') {
-			$arrColumns[] = 'featured ="1"';
+			$arrColumns[] = "featured ='1'";
 		}
 		
 		$objAnimal = Animal::findAll(array('column'=>$arrColumns, 'order'=>$strOrder));
