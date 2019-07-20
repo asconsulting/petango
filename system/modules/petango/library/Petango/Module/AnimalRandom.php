@@ -93,6 +93,9 @@ class AnimalRandom extends Module
 			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
 		}
 		
+		var_dump($arrColumns);
+		echo "<hr>";
+		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
 		$arrModels = $objAnimal->getModels();
 		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
