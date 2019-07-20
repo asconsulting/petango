@@ -147,7 +147,8 @@ class AnimalRandom extends Module
 				if ($objSite) {
 					$objTemplate->site = $objSite->name;
 				}
-					
+				var_dump($objTemplate);
+echo "<hr>";				
 				$this->Template->animals[] = $objTemplate->parse();
 			}
 		}
