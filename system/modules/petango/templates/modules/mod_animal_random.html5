@@ -9,9 +9,11 @@
 <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
 <?php endif; ?>
 
-<div class="mod_petango">
-	<?php if ($this->animal): ?>
-	<?= $this->animal ?>
+<div class="animal_list">
+	<?php if ($this->animals): ?>
+	<?php foreach($this->animals as $animal): ?>
+	<?= $animal ?>
+	<?php endforeach; ?>
 	<?php endif; ?>
 </div>
 
