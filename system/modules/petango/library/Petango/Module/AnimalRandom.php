@@ -57,7 +57,7 @@ class AnimalRandom extends Module
     protected function compile()
     {
 		$arrColumns = array();
-		$strOrder = '';
+		$strOrder = 'name';
 
 		$arrColumns[] = 'active ="1"';
 		
