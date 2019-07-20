@@ -60,7 +60,7 @@ class AnimalRandom extends Module
 		$arrColumns = array();
 		$strOrder = 'name';
 
-		$arrColumns[] = "active ='1'";
+		$arrColumns[] = "tl_petango_animal.active ='1'";
 		
 		if ($this->filter_image) {
 			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
