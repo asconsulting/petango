@@ -1,4 +1,4 @@
-<div class="animal">
+<div class="animal <?= $this->class ?>">
 	<a href="/adopt/<?= $this->reader_link ?>"><h4><?= $this->name ?></h4></a>
 	<?php if ($this->image): ?>
 	<a href="<?= $this->reader_link ?>"><img src="<?= $this->image ?>" alt="<?= $this->name ?>"></a>

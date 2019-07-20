@@ -123,8 +123,35 @@ class AnimalList extends Module
 		
 		if ($objAnimal) {
 			while ($objAnimal->next()) {
+				
+				$strClass = '';
+				if ($objAnimal->species == 2) {
+					$strClass .= 'species_cat';
+				} else if ($objAnimal->species == 3) {
+					$strClass .= 'species_dog';
+				} else {
+					$strClass .= 'species_other';
+				}
+				
+				if ($objAnimal->sex == 'male') {
+					$strClass .= ' gender_male';
+				} else if ($objAnimal->sex == 'female') {
+					$strClass .= ' gender_female';
+				} else {
+					$strClass .= ' gender_unknown';
+				}
+				
+				if ($objAnimal->site == 1) {
+					$strClass .= ' location_springfield';
+				} else if ($objAnimal->site == 2) {
+					$strClass .= ' location_leverette';
+				} else {
+					$strClass .= ' location_unknown';
+				}
+				
 				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_list');
 				$objTemplate->setData($objAnimal->row());
+				$objTemplate->class = $strClass;
 				$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
 				
 				$boolNoImage = false;
