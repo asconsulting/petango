@@ -93,7 +93,7 @@ class AnimalRandom extends Module
 			$arrColumns[] = "tl_petango_animal.featured ='1'";
 		}
 		
-		$arrFind = array('column'=>$arrColumns, 'order'=>$strOrder);
+		$arrFind = array('column'=>$arrColumns, 'order'=>$strOrder, 'return' => 'Collection');
 		if ($this->result_limit) {
 			$arrFind['limit'] = intval($this->result_limit);
 		}
@@ -105,50 +105,52 @@ class AnimalRandom extends Module
 		$arrAnimals = array();
 		
 		if ($objAnimal) {
-			$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_random');
-			$objTemplate->setData($objAnimal->row());
-			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
+			while ($objAnimal->next()) {
+				$objTemplate = new FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_random');
+				$objTemplate->setData($objAnimal->row());
+				$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
 
-			$boolNoImage = false;
-			$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
-			$arrImages = array();
-			foreach($arrTemp as $strImage) {
-				if (stristr($strImage, 'Photo-Not-Available') === false) {
-					$strImage = str_replace('http://', '//', $strImage);
-					if ($strImage != '') {
-						$arrImages[] = $strImage;
-					}	
-				} else {
-					$boolNoImage = true;
+				$boolNoImage = false;
+				$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
+				$arrImages = array();
+				foreach($arrTemp as $strImage) {
+					if (stristr($strImage, 'Photo-Not-Available') === false) {
+						$strImage = str_replace('http://', '//', $strImage);
+						if ($strImage != '') {
+							$arrImages[] = $strImage;
+						}	
+					} else {
+						$boolNoImage = true;
+					}
 				}
-			}
-			
-			if (!$boolNoImage) {
-				$objTemplate->thumbnail = $arrImages[0];
-				$objTemplate->image = $arrImages[1];
-				array_shift($arrImages);
-				$objTemplate->images = $arrImages;
-			} else {
-				$objTemplate->no_image = true;
-				$objTemplate->images = array();
-			}
-		
-			$strAge = '';
-			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
-				$strAge = $objAnimal->age ." months";
-			} else if ($objAnimal->age > 11) {
-				$strAge = floor(intval($objAnimal->age) / 12) ." year";
-			} else if ($objAnimal->age > 23) {
-				$strAge = floor(intval($objAnimal->age) / 12) ." years";
-			}
-			$objTemplate->age = $strAge;
-		
-			$objSite = Site::findByPk($objAnimal->site);
-			if ($objSite) {
-				$objTemplate->site = $objSite->name;
-			}
 				
-			$this->Template->animal = $objTemplate->parse();
+				if (!$boolNoImage) {
+					$objTemplate->thumbnail = $arrImages[0];
+					$objTemplate->image = $arrImages[1];
+					array_shift($arrImages);
+					$objTemplate->images = $arrImages;
+				} else {
+					$objTemplate->no_image = true;
+					$objTemplate->images = array();
+				}
+			
+				$strAge = '';
+				if ($objAnimal->age > 1 && $objAnimal->age < 12) {
+					$strAge = $objAnimal->age ." months";
+				} else if ($objAnimal->age > 11) {
+					$strAge = floor(intval($objAnimal->age) / 12) ." year";
+				} else if ($objAnimal->age > 23) {
+					$strAge = floor(intval($objAnimal->age) / 12) ." years";
+				}
+				$objTemplate->age = $strAge;
+			
+				$objSite = Site::findByPk($objAnimal->site);
+				if ($objSite) {
+					$objTemplate->site = $objSite->name;
+				}
+					
+				$this->Template->animal = $objTemplate->parse();
+			}
 		}
 
 	}

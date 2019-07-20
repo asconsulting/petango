@@ -120,7 +120,7 @@ class AnimalList extends Module
 			
 		}
 		
-		$arrFind = array('column'=>$arrColumns, 'order'=>$strOrder);
+		$arrFind = array('column'=>$arrColumns, 'order'=>$strOrder, 'return' => 'Collection');
 		if ($this->result_limit) {
 			$arrFind['limit'] = intval($this->result_limit);
 		}
