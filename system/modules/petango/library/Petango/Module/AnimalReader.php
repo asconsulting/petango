@@ -16,6 +16,7 @@ namespace Petango\Module;
 use Petango\Model\Animal; 
 use Petango\Model\Site; 
 use Contao\Module;
+use Contao\Input;
 use Contao\FrontendTemplate;
 use Contao\StringUtil;
  
@@ -56,11 +57,13 @@ class AnimalReader extends Module
      */
     protected function compile()
     {
-		$arrBase = explode('?', \Environment::get('request'));
-		
-		$strPageAlias = basename($arrBase[0], '.html');
-
-		$objAnimal = Animal::findBy('alias', $strPageAlias);
+		if (\Input::get('pet')) {
+			$objAnimal = Animal::findBy('petango_id', \Input::get('pet'));
+		} else {
+			$arrBase = explode('?', \Environment::get('request'));
+			$strPageAlias = basename($arrBase[0], '.html');
+			$objAnimal = Animal::findBy('alias', $strPageAlias);
+		}
 		
 		if ($objAnimal) {
 			$arrAnimal = $objAnimal->row();

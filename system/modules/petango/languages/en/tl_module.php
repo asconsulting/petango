@@ -26,6 +26,7 @@ $GLOBALS['TL_LANG']['tl_module']['filter_species'] 		= array('Filter Species', '
 $GLOBALS['TL_LANG']['tl_module']['filter_types'] 		= array('Filter Animal Type', 'Only show animals of these type(s)');
 $GLOBALS['TL_LANG']['tl_module']['filter_breeds'] 		= array('Filter Breeds', 'Only show animals of these breed(s)');
 $GLOBALS['TL_LANG']['tl_module']['filter_configs'] 		= array('Filter Configs', 'Only show animals from these config(s)');
+$GLOBALS['TL_LANG']['tl_module']['filter_image'] 		= array('Filter Image', 'Only show animals with an image');
 
 
 /**

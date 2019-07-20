@@ -85,6 +85,11 @@ class AnimalList extends Module
 		$arrConfig = \StringUtil::deserialize($this->filter_configs);
 		$arrColumns[] = 'source_config IN SET ("'. implode('","', $arrConfig) .'")';
 
+		
+		if ($this->filter_image) {
+			$arrColumns[] = "remote_images NOT LIKE '%Photo-Not-Available%'";
+		}
+		
 		if ($this->featured_animals == 'only') {
 			$arrColumns[] = 'featured ="1"';
 		} else if ($this->featured_animals == 'top') {
