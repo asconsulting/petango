@@ -67,7 +67,7 @@ class AnimalRandom extends Module
 		}
 		
 		$arrSites = \StringUtil::deserialize($this->sites);
-		if (!empty($arrSites)) {$arrColumns[] = 'site IN SET ("'. implode('","', $arrSites) .'")';}
+		if (!empty($arrSites)) {$arrColumns[] = "site IN SET ('". implode("','", $arrSites) ."')";}
 		
 		$arrLocations = \StringUtil::deserialize($filter_locations->sites);
 		if (!empty($arrLocations)) {$arrColumns[] = 'location IN SET ("'. implode('","', $arrLocations) .'")';}
@@ -94,8 +94,7 @@ class AnimalRandom extends Module
 		}
 		
 		$objAnimal = Animal::findAll(array('column'=>$arrColumns, 'order'=>$strOrder));
-
-				
+		
 		$arrModels = $objAnimal->getModels();
 		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
 		
