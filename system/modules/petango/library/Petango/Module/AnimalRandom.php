@@ -99,8 +99,7 @@ class AnimalRandom extends Module
 		}
 		$objAnimal = Animal::findAll($arrFind);
 		
-		//$arrModels = $objAnimal->getModels();
-		//$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
+		$this->Template->animals = array();
 		
 		$arrAnimals = array();
 		
@@ -149,7 +148,7 @@ class AnimalRandom extends Module
 					$objTemplate->site = $objSite->name;
 				}
 					
-				$this->Template->animal = $objTemplate->parse();
+				$this->Template->animals[] = $objTemplate->parse();
 			}
 		}
 
