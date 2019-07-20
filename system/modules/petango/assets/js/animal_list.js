@@ -41,6 +41,8 @@ $( document ).ready(function() {
 					$(this).removeClass('show');
 				}
 			});
+		} else {
+			delete objQueryNew['species'];
 		}
 		
 		if (gender_filter == 'male') {
@@ -57,6 +59,8 @@ $( document ).ready(function() {
 					$(this).removeClass('show');
 				}
 			});
+		} else {
+			delete objQueryNew['gender'];
 		}
 		
 		if (location_filter == 'springfield') {
@@ -73,6 +77,8 @@ $( document ).ready(function() {
 					$(this).removeClass('show');
 				}
 			});
+		} else {
+			delete objQueryNew['location'];
 		}
 		
 		$('div.animal_list div.animal').each(function(){
@@ -87,7 +93,7 @@ $( document ).ready(function() {
 		
 		
 		for (var key in objQueryNew) {
-			if (objQueryNew.hasOwnProperty(key)) {
+			if (key != '' && objQueryNew.hasOwnProperty(key)) {
 				strNewUrl = strNewUrl + key + "=" + objQueryNew[key] + "&";
 			}
 		}
