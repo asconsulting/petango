@@ -57,6 +57,9 @@ class AnimalList extends Module
      */
     protected function compile()
     {
+		global $objPage;
+		
+		var_dump($objPage);
 		
 		$arrColumns = array();
 		$strOrder = '';

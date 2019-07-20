@@ -63,4 +63,6 @@ TemplateLoader::addFiles(array
     'petango_animal_random' 			=> 'system/modules/petango/templates/items',
     'petango_animal_full' 				=> 'system/modules/petango/templates/items',
     'petango_site' 						=> 'system/modules/petango/templates/items',
+	
+    'meta_petango_animal' 				=> 'system/modules/petango/templates/meta',
 ));

@@ -1,0 +1,6 @@
+<meta property="og:title" content="Meet <?= $this->name ?> - Dakin Humane Society" />
+<meta property="og:description" content="Check it out..." />
+<meta property="og:url" content="<?= $this->reader_link ?>" />
+<?php if ($this->image): ?><meta property="og:image" content="<?= $this->image ?>" /><?php endif; ?>
+<?php if ($this->video): ?><meta property="og:video" content="<?= $this->video ?>" /><?php endif; ?>
+<meta property="og:type" content="website" />
