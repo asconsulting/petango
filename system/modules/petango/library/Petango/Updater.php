@@ -363,7 +363,8 @@ class Updater
 				$objAnimal->adoption_cost 			= $arrAnimal['adoption_cost'];
 				
 				$objAnimal->remote_images 			= serialize($arrAnimal['remote_images']);
-
+				$objAnimal->video_id				= $arrAnimal['video_id'];
+				
 				$objAnimal->reference_num 			= $arrAnimal['reference_num'];
 				$objAnimal->buddy_animal 			= $arrAnimal['buddy_animal'];
 				$objAnimal->site 					= $arrAnimal['site'];

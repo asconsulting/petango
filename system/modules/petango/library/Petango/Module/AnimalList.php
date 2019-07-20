@@ -168,7 +168,9 @@ class AnimalList extends Module
 			}
 		}
 		$this->Template->animals = $arrAnimals;
-
+		
+		$GLOBALS['TL_HEAD'][] = '<script src="system/modules/petango/assets/js/animal_list.js"></script>';
+		
 	}
 
 } 
