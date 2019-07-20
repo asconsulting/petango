@@ -5,7 +5,7 @@ $( document ).ready(function() {
 
 		// Update URL
 		var strUrl = location.href;
-		var strNewUrl = '';
+		var strNewQuery = '';
 		var objQueryNew = {};
 		
 		var query = window.location.search.substring(1);
@@ -94,12 +94,16 @@ $( document ).ready(function() {
 		
 		for (var key in objQueryNew) {
 			if (key != '' && objQueryNew.hasOwnProperty(key)) {
-				strNewUrl = strNewUrl + key + "=" + objQueryNew[key] + "&";
+				strNewQuery = strNewQuery + key + "=" + objQueryNew[key] + "&";
 			}
 		}
 		
-		strNewUrl = strNewUrl.substring(0, strNewUrl.length -1);
-		strNewUrl = [location.protocol, '//', location.host, location.pathname, '?', strNewUrl].join('');
+		strNewQuery = strNewQuery.substring(0, strNewQuery.length -1);
+		strNewUrl = [location.protocol, '//', location.host, location.pathname].join('');
+		
+		if (strNewQuery != '') {
+			strNewUrl = strNewUrl + '?' + strNewQuery;
+		}
 		
 		history.replaceState(null, null, strNewUrl);
 
@@ -107,31 +111,43 @@ $( document ).ready(function() {
 
 	// Query String Filter State
 	var loadFromUrl = function() {
-		var arrFilter;
+		var species_filter = '';
+		var gender_filter = '';
+		var location_filter = '';
 		
-		// Query String
-		//var pageUrl = window.location.search.substring(1);
-		var pageUrl = location.search.substring(1);
-		var queryParts = pageUrl.split('&');
-		for (var i = 0; i < queryParts.length; i++) {
-			var variable = queryParts[i].split('=');
-			if (variable[0] == "category") {
-				arrFilter = variable[1].split(',');
-			}
-		}
-		
-		if (arrFilter.length > 0 && arrFilter != "") {
-			for (var i = 0; i < arrFilter.length; i++) {
-				$("select.category_filter option").each(function() {
-					if ($(this).val() == "cat_" + arrFilter[i]) {
+		var query = window.location.search.substring(1);
+		var queryValues = query.split("&");
+		for (var i = 0; i < queryValues.length; i++) {
+			var pair = queryValues[i].split("=");
+			if (pair[0] == 'species') {
+				$("#species_filter option").each(function() {
+					if ($(this).val() == pair[1]) {
 						$(this).attr("selected", true);
+					} else {
+						$(this).attr("selected", false);
+					}
+				});
+			} else if (pair[0] == 'gender') {
+				$("#gender_filter option").each(function() {
+					if ($(this).val() == pair[1]) {
+						$(this).attr("selected", true);
+					} else {
+						$(this).attr("selected", false);
+					}
+				});
+			} else if (pair[0] == 'location') {
+				$("#location_filter option").each(function() {
+					if ($(this).val() == pair[1]) {
+						$(this).attr("selected", true);
+					} else {
+						$(this).attr("selected", false);
 					}
 				});
 			}
-			$("select.category_filter").change();
 		}
+		$("select.animal_filter").first().change();
 	}
-	//loadFromUrl();
+	loadFromUrl();
 	
 	$("select.category_filter").change();
 
