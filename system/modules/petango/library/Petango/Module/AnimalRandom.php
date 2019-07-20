@@ -90,7 +90,7 @@ class AnimalRandom extends Module
 		}
 		
 		if ($this->filter_image) {
-			$arrColumns[] = "remote_images NOT LIKE '%Photo-Not-Available%'";
+			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
 		}
 		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
