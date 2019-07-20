@@ -14,9 +14,9 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_list'] 		= '{title_legend},name,headline,type;{petango_legend},animal_order,featured_animals,filter_sites,filter_locations,filter_stages,filter_on_hold,filter_image,filter_species,filter_types,filter_breeds,filter_configs;{redirect_legend},jumpTo;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_list'] 		= '{title_legend},name,headline,type;{petango_legend},result_limit,animal_order,featured_animals,filter_sites,filter_locations,filter_stages,filter_on_hold,filter_image,filter_species,filter_types,filter_breeds,filter_configs;{redirect_legend},jumpTo;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_reader'] 	= '{title_legend},name,headline,type;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_random'] 	= '{title_legend},name,headline,type;{petango_legend},animal_order,filter_sites,filter_locations,filter_stages,filter_on_hold,filter_image,filter_species,filter_types,filter_breeds,filter_configs;{redirect_legend},jumpTo;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_random'] 	= '{title_legend},name,headline,type;{petango_legend},result_limit,animal_order,filter_sites,filter_locations,filter_stages,filter_on_hold,filter_image,filter_species,filter_types,filter_breeds,filter_configs;{redirect_legend},jumpTo;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['petango_animal_search'] 	= '{title_legend},name,headline,type;{petango_legend},animal_order,featured_animals,filter_sites,filter_locations,filter_stages,filter_on_hold,filter_image,filter_species,filter_types,filter_breeds,filter_configs;{redirect_legend},jumpTo;{template_legend:hide},customTpl,customAnimalTpl;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['petango_site_list'] 		= '{title_legend},name,headline,type;{petango_legend},filter_configs;{template_legend:hide},customTpl,customSiteTpl;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['petango_site_reader'] 		= '{title_legend},name,headline,type;{template_legend:hide},customTpl,customSiteTpl;{expert_legend:hide},guests,cssID,space';
@@ -155,4 +155,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['filter_image'] = array
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'clr'),
     'sql'                     => "char(1) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['result_limit'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['result_limit'],
+	'inputType'               => 'text',
+	'default'				  => '',
+	'search'				  => true,
+	'eval'                    => array('maxlength'=>4, 'tl_class'=>'w50', 'rgxp'=>'natural', 'minval'=>0, 'maxval'=>9999),
+	'sql'                     => "varchar(4) NOT NULL default ''"
 );

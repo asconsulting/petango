@@ -58,7 +58,7 @@ class AnimalRandom extends Module
     protected function compile()
     {
 		$arrColumns = array();
-		$strOrder = 'name';
+		$strOrder = 'RAND()';
 
 		$arrColumns[] = "tl_petango_animal.active ='1'";
 		
@@ -93,10 +93,14 @@ class AnimalRandom extends Module
 			$arrColumns[] = "tl_petango_animal.featured ='1'";
 		}
 		
-		$objAnimal = Animal::findAll(array('column'=>$arrColumns, 'order'=>$strOrder));
+		$arrFind = array('column'=>$arrColumns, 'order'=>$strOrder);
+		if ($this->result_limit) {
+			$arrFind['limit'] = intval($this->result_limit);
+		}
+		$objAnimal = Animal::findAll($arrFind);
 		
-		$arrModels = $objAnimal->getModels();
-		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
+		//$arrModels = $objAnimal->getModels();
+		//$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
 		
 		$arrAnimals = array();
 		
