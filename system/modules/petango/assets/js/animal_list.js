@@ -93,7 +93,7 @@ $( document ).ready(function() {
 		}
 		
 		strNewUrl = strNewUrl.substring(0, strNewUrl.length -1);
-		strNewUrl = [location.protocol, '//', location.host, location.pathname].join('') + strNewUrl;
+		strNewUrl = [location.protocol, '//', location.host, location.pathname, '?', strNewUrl].join('');
 		
 		history.replaceState(null, null, strNewUrl);
 
