@@ -91,8 +91,6 @@ class AnimalRandom extends Module
 		
 		if ($this->filter_image) {
 			$arrColumns[] = "remote_images NOT LIKE '%Photo-Not-Available%'";
-			var_dump($arrColumns);
-			die();
 		}
 		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
