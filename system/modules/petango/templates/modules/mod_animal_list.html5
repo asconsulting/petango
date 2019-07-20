@@ -4,6 +4,25 @@
 <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
 <?php endif; ?>
 
+	<div class="filters">
+		<select name="species" class="species_filter" id="species_filter">
+			<option class="default" value=""> - All Species - </option>
+			<option value="dog">Dog</option>
+			<option value="cat">Cat</option>
+			<option value="other">Other than Dog and Cat</option>
+		</select>
+		<select name="gender" class="gender_filter" id="gender_filter">
+			<option class="default" value=""> - Both Genders - </option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select>
+		<select name="gender" class="location_filter" id="location_filter">
+			<option class="default" value=""> - All Locations - </option>
+			<option value="springfield">Springfield</option>
+			<option value="leverette">Leverette</option>
+		</select>
+	</div>
+
 	<div class="animal_list">
 	<?php if ($this->animals): ?>
 	<?php foreach($this->animals as $animal): ?>
