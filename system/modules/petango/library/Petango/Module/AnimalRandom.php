@@ -127,6 +127,8 @@ class AnimalRandom extends Module
 			if ($objAnimal->age > 1 && $objAnimal->age < 12) {
 				$strAge = $objAnimal->age ." months";
 			} else if ($objAnimal->age > 11) {
+				$strAge = floor(intval($objAnimal->age) / 12) ." year";
+			} else if ($objAnimal->age > 23) {
 				$strAge = floor(intval($objAnimal->age) / 12) ." years";
 			}
 			$objTemplate->age = $strAge;
