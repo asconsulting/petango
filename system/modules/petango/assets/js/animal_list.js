@@ -73,7 +73,7 @@ $( document ).ready(function() {
 		var queryValues = query.split("&");
 		for (var i = 0; i < queryValues.length; i++) {
 			var pair = queryValues[i].split("=");
-			objQueryNew.[pair[0]] = pair[1];
+			objQueryNew[pair[0]] = pair[1];
 		}
 		
 		alert(JSON.stringify(objQueryNew));
