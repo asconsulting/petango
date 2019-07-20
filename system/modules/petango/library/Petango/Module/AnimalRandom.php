@@ -62,6 +62,10 @@ class AnimalRandom extends Module
 
 		$arrColumns[] = 'active ="1"';
 		
+		if ($this->filter_image) {
+			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
+		}
+		
 		$arrSites = \StringUtil::deserialize($this->sites);
 		if (!empty($arrSites)) {$arrColumns[] = 'site IN SET ("'. implode('","', $arrSites) .'")';}
 		
@@ -87,10 +91,6 @@ class AnimalRandom extends Module
 
 		if ($this->featured_animals == 'only') {
 			$arrColumns[] = 'featured ="1"';
-		}
-		
-		if ($this->filter_image) {
-			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
 		}
 		
 		var_dump($arrColumns);
