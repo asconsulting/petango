@@ -108,7 +108,7 @@ $( document ).ready(function() {
 			$("select.category_filter").change();
 		}
 	}
-	loadFromUrl();
+	//loadFromUrl();
 	
 	$("select.category_filter").change();
 
