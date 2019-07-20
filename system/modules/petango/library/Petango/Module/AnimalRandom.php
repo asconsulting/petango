@@ -97,6 +97,10 @@ class AnimalRandom extends Module
 		echo "<hr>";
 		
 		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
+		var_dump($objAnimal);
+		die();
+		
+		
 		$arrModels = $objAnimal->getModels();
 		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
 		
