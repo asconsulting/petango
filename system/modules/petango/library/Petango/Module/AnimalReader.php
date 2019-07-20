@@ -55,10 +55,10 @@ class AnimalReader extends Module
      */
     protected function compile()
     {
-		$strPageAlias = basename(\Environment::get('request'), '.html');
-
-var_dump($strPageAlias);		
+		$arrBase = explode('?', \Environment::get('request'));
 		
+		$strPageAlias = basename($arrBase[0], '.html');
+
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
 		
 		if ($objAnimal) {
