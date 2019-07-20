@@ -61,10 +61,9 @@ class AnimalReader extends Module
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
 		
 		if ($objAnimal) {
-			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_reader');
-			$objTemplate->setData($objAnimal->row());
-			$objTemplate->reader_link = 'adopt/' .$objAnimal->alias .'.html';
-
+			$arrAnimal = $objAnimal->row();
+			$arrAnimal['reader_link'] = 'adopt/' .$objAnimal->alias .'.html';
+			
 			$boolNoImage = false;
 			$arrTemp = StringUtil::deserialize($objAnimal->remote_images);
 			$arrImages = array();
@@ -80,13 +79,13 @@ class AnimalReader extends Module
 			}
 			
 			if (!$boolNoImage) {
-				$objTemplate->thumbnail = $arrImages[0];
-				$objTemplate->image = $arrImages[1];
+				$arrAnimal['thumbnail'] = $arrImages[0];
+				$arrAnimal['image'] = $arrImages[1];
 				array_shift($arrImages);
-				$objTemplate->images = $arrImages;
+				$arrAnimal['images'] = $arrImages;
 			} else {
-				$objTemplate->no_image = true;
-				$objTemplate->images = array();
+				$arrAnimal['no_image'] = true;
+				$arrAnimal['images'] = array();
 			}
 			
 			$strAge = '';
@@ -95,14 +94,22 @@ class AnimalReader extends Module
 			} else if ($objAnimal->age > 11) {
 				$strAge = floor(intval($objAnimal->age) / 12) ." years";
 			}
-			$objTemplate->age = $strAge;
+			$arrAnimal['age'] = $strAge;
 			
 			$objSite = Site::findByPk($objAnimal->site);
 			if ($objSite) {
-				$objTemplate->site = $objSite->name;
+				$arrAnimal['site'] = $objSite->name;
 			}
 			
+			$objTemplate = new \FrontendTemplate($this->customAnimalTpl ? $this->customAnimalTpl : 'petango_animal_reader');
+			$objTemplate->setData($arrAnimal);
+			
 			$this->Template->animal = $objTemplate->parse();
+			
+			$objMetaTemplate = new \FrontendTemplate('meta_petango_animal');
+			$objMetaTemplate->setData($arrAnimal);
+			
+			$GLOBALS['TL_HEAD'][] = $objMetaTemplate->parse();
 		}
 	}
 
