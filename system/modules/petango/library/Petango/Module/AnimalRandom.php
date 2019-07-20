@@ -99,7 +99,7 @@ class AnimalRandom extends Module
 		}
 		$objAnimal = Animal::findAll($arrFind);
 		
-		$this->Template->animals = array();
+		
 		
 		$arrAnimals = array();
 		
@@ -147,11 +147,11 @@ class AnimalRandom extends Module
 				if ($objSite) {
 					$objTemplate->site = $objSite->name;
 				}
-				var_dump($objTemplate);
-echo "<hr>";				
-				$this->Template->animals[] = $objTemplate->parse();
+				
+				$arrAnimals[] = $objTemplate->parse();
 			}
 		}
+		$this->Template->animals = $arrAnimals;
 
 	}
 
