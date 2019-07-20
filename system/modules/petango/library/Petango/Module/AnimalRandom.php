@@ -63,7 +63,7 @@ class AnimalRandom extends Module
 		$arrColumns[] = 'active ="1"';
 		
 		if ($this->filter_image) {
-			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
+			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%') ORDER ";
 		}
 		
 		$arrSites = \StringUtil::deserialize($this->sites);
