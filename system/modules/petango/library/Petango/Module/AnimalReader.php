@@ -56,7 +56,8 @@ class AnimalReader extends Module
     protected function compile()
     {
 		$strPageAlias = basename(\Environment::get('request'), '.html');
-		
+
+var_dump($strPageAlias);		
 		
 		$objAnimal = Animal::findBy('alias', $strPageAlias);
 		
