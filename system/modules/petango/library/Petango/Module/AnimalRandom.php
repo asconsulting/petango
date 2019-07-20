@@ -63,7 +63,7 @@ class AnimalRandom extends Module
 		$arrColumns[] = 'active ="1"';
 		
 		if ($this->filter_image) {
-			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%') kajsdkjbauw ";
+			$arrColumns[] = "(remote_images NOT LIKE '%Photo-Not-Available%')";
 		}
 		
 		$arrSites = \StringUtil::deserialize($this->sites);
@@ -93,14 +93,9 @@ class AnimalRandom extends Module
 			$arrColumns[] = 'featured ="1"';
 		}
 		
-		var_dump($arrColumns);
-		echo "<hr>";
-		
-		$objAnimal = Animal::findAll(array('columns'=>$arrColumns, 'order'=>$strOrder));
-		var_dump($objAnimal);
-		die();
-		
-		
+		$objAnimal = Animal::findAll(array('column'=>$arrColumns, 'order'=>$strOrder));
+
+				
 		$arrModels = $objAnimal->getModels();
 		$objAnimal = $arrModels[mt_rand(0, count($arrModels) - 1)];
 		
