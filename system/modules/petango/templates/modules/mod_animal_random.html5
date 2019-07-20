@@ -1,4 +1,4 @@
-<?php $this->extend('block_searchable'); ?>
+<?php $this->extend('block_unsearchable'); ?>
 
 <?php $this->block('content'); ?>
 <!-- indexer::stop -->
@@ -14,14 +14,5 @@
 	<?= $this->animal ?>
 	<?php endif; ?>
 </div>
-<script>
-$(window).load(function() {
-	$('.flexslider').flexslider({
-		controlNav: "thumbnails",
-		directionNav: false,
-		slideshow: false
-	});
-});
-</script>
 
 <?php $this->endblock(); ?>
