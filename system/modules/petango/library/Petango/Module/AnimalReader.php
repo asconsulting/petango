@@ -65,7 +65,7 @@ class AnimalReader extends Module
 			$objAnimal = Animal::findBy('alias', $strPageAlias);
 		}
 		
-		if ($objAnimal) {
+		if ($objAnimal && $objAnimal->active) {
 			$arrAnimal = $objAnimal->row();
 			$arrAnimal['reader_link'] = 'adopt/' .$objAnimal->alias .'.html';
 			
